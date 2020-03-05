@@ -1,0 +1,765 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026BF05A9852AEF9B3F01386 /* Pods_Pushley_PushleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51EDA87EA0F947CA069CED /* Pods_Pushley_PushleyUITests.framework */; };
+		5984A3DE2411BB40002AB96E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3DD2411BB40002AB96E /* AppDelegate.swift */; };
+		5984A3E02411BB40002AB96E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3DF2411BB40002AB96E /* SceneDelegate.swift */; };
+		5984A3E22411BB40002AB96E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3E12411BB40002AB96E /* ContentView.swift */; };
+		5984A3E42411BB43002AB96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5984A3E32411BB43002AB96E /* Assets.xcassets */; };
+		5984A3E72411BB43002AB96E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5984A3E62411BB43002AB96E /* Preview Assets.xcassets */; };
+		5984A3EA2411BB43002AB96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5984A3E82411BB43002AB96E /* LaunchScreen.storyboard */; };
+		5984A3F52411BB43002AB96E /* PushleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3F42411BB43002AB96E /* PushleyTests.swift */; };
+		5984A4002411BB43002AB96E /* PushleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3FF2411BB43002AB96E /* PushleyUITests.swift */; };
+		5984A40F2411C0FD002AB96E /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A40E2411C0FD002AB96E /* PushViewModel.swift */; };
+		DFC14739E8B0C35FDD78414D /* Pods_PushleyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E771784010ACD5E23DE112C /* Pods_PushleyTests.framework */; };
+		E9BA6D0C3118BAC96664A34D /* Pods_Pushley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDE84340E6A52744155DF90 /* Pods_Pushley.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5984A3F12411BB43002AB96E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5984A3D22411BB3F002AB96E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5984A3D92411BB40002AB96E;
+			remoteInfo = Pushley;
+		};
+		5984A3FC2411BB43002AB96E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5984A3D22411BB3F002AB96E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5984A3D92411BB40002AB96E;
+			remoteInfo = Pushley;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E771784010ACD5E23DE112C /* Pods_PushleyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushleyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19CE8480FD4A51821980FBA2 /* Pods-Pushley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley.release.xcconfig"; path = "Target Support Files/Pods-Pushley/Pods-Pushley.release.xcconfig"; sourceTree = "<group>"; };
+		5984A3DA2411BB40002AB96E /* Pushley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pushley.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5984A3DD2411BB40002AB96E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5984A3DF2411BB40002AB96E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5984A3E12411BB40002AB96E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5984A3E32411BB43002AB96E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5984A3E62411BB43002AB96E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5984A3E92411BB43002AB96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5984A3EB2411BB43002AB96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5984A3F02411BB43002AB96E /* PushleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5984A3F42411BB43002AB96E /* PushleyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushleyTests.swift; sourceTree = "<group>"; };
+		5984A3F62411BB43002AB96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5984A3FB2411BB43002AB96E /* PushleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5984A3FF2411BB43002AB96E /* PushleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushleyUITests.swift; sourceTree = "<group>"; };
+		5984A4012411BB43002AB96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5984A40D2411BB61002AB96E /* Pushley.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pushley.entitlements; sourceTree = "<group>"; };
+		5984A40E2411C0FD002AB96E /* PushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
+		5F51EDA87EA0F947CA069CED /* Pods_Pushley_PushleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley_PushleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68B090A36D112459A1768E41 /* Pods-Pushley-PushleyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley-PushleyUITests.release.xcconfig"; path = "Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B09B5738FC4DBD106CC70343 /* Pods-PushleyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushleyTests.debug.xcconfig"; path = "Target Support Files/Pods-PushleyTests/Pods-PushleyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBDE84340E6A52744155DF90 /* Pods_Pushley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC47B81078B8D96A8EC8A2C3 /* Pods-Pushley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley.debug.xcconfig"; path = "Target Support Files/Pods-Pushley/Pods-Pushley.debug.xcconfig"; sourceTree = "<group>"; };
+		CC558751A31036AFF406C6ED /* Pods-PushleyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushleyTests.release.xcconfig"; path = "Target Support Files/Pods-PushleyTests/Pods-PushleyTests.release.xcconfig"; sourceTree = "<group>"; };
+		D33A54BAB12F83AF56E0FE56 /* Pods-Pushley-PushleyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley-PushleyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5984A3D72411BB40002AB96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9BA6D0C3118BAC96664A34D /* Pods_Pushley.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3ED2411BB43002AB96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFC14739E8B0C35FDD78414D /* Pods_PushleyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3F82411BB43002AB96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026BF05A9852AEF9B3F01386 /* Pods_Pushley_PushleyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		184AFC5837C457395154D3E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBDE84340E6A52744155DF90 /* Pods_Pushley.framework */,
+				5F51EDA87EA0F947CA069CED /* Pods_Pushley_PushleyUITests.framework */,
+				0E771784010ACD5E23DE112C /* Pods_PushleyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5984A3D12411BB3F002AB96E = {
+			isa = PBXGroup;
+			children = (
+				5984A3DC2411BB40002AB96E /* Pushley */,
+				5984A3F32411BB43002AB96E /* PushleyTests */,
+				5984A3FE2411BB43002AB96E /* PushleyUITests */,
+				5984A3DB2411BB40002AB96E /* Products */,
+				93F85E8A81A551FAFF6940F4 /* Pods */,
+				184AFC5837C457395154D3E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5984A3DB2411BB40002AB96E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5984A3DA2411BB40002AB96E /* Pushley.app */,
+				5984A3F02411BB43002AB96E /* PushleyTests.xctest */,
+				5984A3FB2411BB43002AB96E /* PushleyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5984A3DC2411BB40002AB96E /* Pushley */ = {
+			isa = PBXGroup;
+			children = (
+				5984A40D2411BB61002AB96E /* Pushley.entitlements */,
+				5984A3DD2411BB40002AB96E /* AppDelegate.swift */,
+				5984A3DF2411BB40002AB96E /* SceneDelegate.swift */,
+				5984A3E12411BB40002AB96E /* ContentView.swift */,
+				5984A40E2411C0FD002AB96E /* PushViewModel.swift */,
+				5984A3E32411BB43002AB96E /* Assets.xcassets */,
+				5984A3E82411BB43002AB96E /* LaunchScreen.storyboard */,
+				5984A3EB2411BB43002AB96E /* Info.plist */,
+				5984A3E52411BB43002AB96E /* Preview Content */,
+			);
+			path = Pushley;
+			sourceTree = "<group>";
+		};
+		5984A3E52411BB43002AB96E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5984A3E62411BB43002AB96E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5984A3F32411BB43002AB96E /* PushleyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5984A3F42411BB43002AB96E /* PushleyTests.swift */,
+				5984A3F62411BB43002AB96E /* Info.plist */,
+			);
+			path = PushleyTests;
+			sourceTree = "<group>";
+		};
+		5984A3FE2411BB43002AB96E /* PushleyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5984A3FF2411BB43002AB96E /* PushleyUITests.swift */,
+				5984A4012411BB43002AB96E /* Info.plist */,
+			);
+			path = PushleyUITests;
+			sourceTree = "<group>";
+		};
+		93F85E8A81A551FAFF6940F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC47B81078B8D96A8EC8A2C3 /* Pods-Pushley.debug.xcconfig */,
+				19CE8480FD4A51821980FBA2 /* Pods-Pushley.release.xcconfig */,
+				D33A54BAB12F83AF56E0FE56 /* Pods-Pushley-PushleyUITests.debug.xcconfig */,
+				68B090A36D112459A1768E41 /* Pods-Pushley-PushleyUITests.release.xcconfig */,
+				B09B5738FC4DBD106CC70343 /* Pods-PushleyTests.debug.xcconfig */,
+				CC558751A31036AFF406C6ED /* Pods-PushleyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5984A3D92411BB40002AB96E /* Pushley */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5984A4042411BB43002AB96E /* Build configuration list for PBXNativeTarget "Pushley" */;
+			buildPhases = (
+				40A7ABDF216507AD117C64A5 /* [CP] Check Pods Manifest.lock */,
+				5984A3D62411BB40002AB96E /* Sources */,
+				5984A3D72411BB40002AB96E /* Frameworks */,
+				5984A3D82411BB40002AB96E /* Resources */,
+				C5D4F0B87929E89DA6FAC840 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pushley;
+			productName = Pushley;
+			productReference = 5984A3DA2411BB40002AB96E /* Pushley.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5984A3EF2411BB43002AB96E /* PushleyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5984A4072411BB43002AB96E /* Build configuration list for PBXNativeTarget "PushleyTests" */;
+			buildPhases = (
+				31600DC5F2144B1BABB8A8C9 /* [CP] Check Pods Manifest.lock */,
+				5984A3EC2411BB43002AB96E /* Sources */,
+				5984A3ED2411BB43002AB96E /* Frameworks */,
+				5984A3EE2411BB43002AB96E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5984A3F22411BB43002AB96E /* PBXTargetDependency */,
+			);
+			name = PushleyTests;
+			productName = PushleyTests;
+			productReference = 5984A3F02411BB43002AB96E /* PushleyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5984A3FA2411BB43002AB96E /* PushleyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5984A40A2411BB43002AB96E /* Build configuration list for PBXNativeTarget "PushleyUITests" */;
+			buildPhases = (
+				F84B5ACB85E0AFD353ED46E0 /* [CP] Check Pods Manifest.lock */,
+				5984A3F72411BB43002AB96E /* Sources */,
+				5984A3F82411BB43002AB96E /* Frameworks */,
+				5984A3F92411BB43002AB96E /* Resources */,
+				9774120B80F2A45D75A027E5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5984A3FD2411BB43002AB96E /* PBXTargetDependency */,
+			);
+			name = PushleyUITests;
+			productName = PushleyUITests;
+			productReference = 5984A3FB2411BB43002AB96E /* PushleyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5984A3D22411BB3F002AB96E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Johnnie Cheng";
+				TargetAttributes = {
+					5984A3D92411BB40002AB96E = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					5984A3EF2411BB43002AB96E = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5984A3D92411BB40002AB96E;
+					};
+					5984A3FA2411BB43002AB96E = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5984A3D92411BB40002AB96E;
+					};
+				};
+			};
+			buildConfigurationList = 5984A3D52411BB3F002AB96E /* Build configuration list for PBXProject "Pushley" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5984A3D12411BB3F002AB96E;
+			productRefGroup = 5984A3DB2411BB40002AB96E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5984A3D92411BB40002AB96E /* Pushley */,
+				5984A3EF2411BB43002AB96E /* PushleyTests */,
+				5984A3FA2411BB43002AB96E /* PushleyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5984A3D82411BB40002AB96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5984A3EA2411BB43002AB96E /* LaunchScreen.storyboard in Resources */,
+				5984A3E72411BB43002AB96E /* Preview Assets.xcassets in Resources */,
+				5984A3E42411BB43002AB96E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3EE2411BB43002AB96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3F92411BB43002AB96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31600DC5F2144B1BABB8A8C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PushleyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40A7ABDF216507AD117C64A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pushley-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9774120B80F2A45D75A027E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5D4F0B87929E89DA6FAC840 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pushley/Pods-Pushley-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pushley/Pods-Pushley-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pushley/Pods-Pushley-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F84B5ACB85E0AFD353ED46E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pushley-PushleyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5984A3D62411BB40002AB96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5984A3DE2411BB40002AB96E /* AppDelegate.swift in Sources */,
+				5984A3E02411BB40002AB96E /* SceneDelegate.swift in Sources */,
+				5984A40F2411C0FD002AB96E /* PushViewModel.swift in Sources */,
+				5984A3E22411BB40002AB96E /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3EC2411BB43002AB96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5984A3F52411BB43002AB96E /* PushleyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984A3F72411BB43002AB96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5984A4002411BB43002AB96E /* PushleyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5984A3F22411BB43002AB96E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5984A3D92411BB40002AB96E /* Pushley */;
+			targetProxy = 5984A3F12411BB43002AB96E /* PBXContainerItemProxy */;
+		};
+		5984A3FD2411BB43002AB96E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5984A3D92411BB40002AB96E /* Pushley */;
+			targetProxy = 5984A3FC2411BB43002AB96E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5984A3E82411BB43002AB96E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5984A3E92411BB43002AB96E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5984A4022411BB43002AB96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5984A4032411BB43002AB96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5984A4052411BB43002AB96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC47B81078B8D96A8EC8A2C3 /* Pods-Pushley.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pushley/Pushley.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Pushley/Preview Content\"";
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Pushley/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.Pushley;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5984A4062411BB43002AB96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CE8480FD4A51821980FBA2 /* Pods-Pushley.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pushley/Pushley.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Pushley/Preview Content\"";
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Pushley/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.Pushley;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5984A4082411BB43002AB96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B09B5738FC4DBD106CC70343 /* Pods-PushleyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				INFOPLIST_FILE = PushleyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.PushleyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pushley.app/Pushley";
+			};
+			name = Debug;
+		};
+		5984A4092411BB43002AB96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC558751A31036AFF406C6ED /* Pods-PushleyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				INFOPLIST_FILE = PushleyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.PushleyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pushley.app/Pushley";
+			};
+			name = Release;
+		};
+		5984A40B2411BB43002AB96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D33A54BAB12F83AF56E0FE56 /* Pods-Pushley-PushleyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				INFOPLIST_FILE = PushleyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.PushleyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pushley;
+			};
+			name = Debug;
+		};
+		5984A40C2411BB43002AB96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68B090A36D112459A1768E41 /* Pods-Pushley-PushleyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98ZR4W8N62;
+				INFOPLIST_FILE = PushleyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TWG.PushleyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pushley;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5984A3D52411BB3F002AB96E /* Build configuration list for PBXProject "Pushley" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5984A4022411BB43002AB96E /* Debug */,
+				5984A4032411BB43002AB96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5984A4042411BB43002AB96E /* Build configuration list for PBXNativeTarget "Pushley" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5984A4052411BB43002AB96E /* Debug */,
+				5984A4062411BB43002AB96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5984A4072411BB43002AB96E /* Build configuration list for PBXNativeTarget "PushleyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5984A4082411BB43002AB96E /* Debug */,
+				5984A4092411BB43002AB96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5984A40A2411BB43002AB96E /* Build configuration list for PBXNativeTarget "PushleyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5984A40B2411BB43002AB96E /* Debug */,
+				5984A40C2411BB43002AB96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5984A3D22411BB3F002AB96E /* Project object */;
+}
