@@ -17,6 +17,9 @@
 		5984A3F52411BB43002AB96E /* PushleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3F42411BB43002AB96E /* PushleyTests.swift */; };
 		5984A4002411BB43002AB96E /* PushleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A3FF2411BB43002AB96E /* PushleyUITests.swift */; };
 		5984A40F2411C0FD002AB96E /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A40E2411C0FD002AB96E /* PushViewModel.swift */; };
+		5984A4172411E109002AB96E /* cert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5984A4152411E109002AB96E /* cert.cer */; };
+		5984A4182411E109002AB96E /* cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5984A4162411E109002AB96E /* cert.p12 */; };
+		5984A41A2411E4D3002AB96E /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5984A4192411E4D3002AB96E /* PKCS12.swift */; };
 		DFC14739E8B0C35FDD78414D /* Pods_PushleyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E771784010ACD5E23DE112C /* Pods_PushleyTests.framework */; };
 		E9BA6D0C3118BAC96664A34D /* Pods_Pushley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDE84340E6A52744155DF90 /* Pods_Pushley.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +60,9 @@
 		5984A4012411BB43002AB96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5984A40D2411BB61002AB96E /* Pushley.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pushley.entitlements; sourceTree = "<group>"; };
 		5984A40E2411C0FD002AB96E /* PushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
+		5984A4152411E109002AB96E /* cert.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert.cer; sourceTree = "<group>"; };
+		5984A4162411E109002AB96E /* cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert.p12; sourceTree = "<group>"; };
+		5984A4192411E4D3002AB96E /* PKCS12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS12.swift; sourceTree = "<group>"; };
 		5F51EDA87EA0F947CA069CED /* Pods_Pushley_PushleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley_PushleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B090A36D112459A1768E41 /* Pods-Pushley-PushleyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley-PushleyUITests.release.xcconfig"; path = "Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B09B5738FC4DBD106CC70343 /* Pods-PushleyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushleyTests.debug.xcconfig"; path = "Target Support Files/Pods-PushleyTests/Pods-PushleyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,9 +140,11 @@
 				5984A3DF2411BB40002AB96E /* SceneDelegate.swift */,
 				5984A3E12411BB40002AB96E /* ContentView.swift */,
 				5984A40E2411C0FD002AB96E /* PushViewModel.swift */,
+				5984A4192411E4D3002AB96E /* PKCS12.swift */,
 				5984A3E32411BB43002AB96E /* Assets.xcassets */,
 				5984A3E82411BB43002AB96E /* LaunchScreen.storyboard */,
 				5984A3EB2411BB43002AB96E /* Info.plist */,
+				5984A4142411E109002AB96E /* Resources */,
 				5984A3E52411BB43002AB96E /* Preview Content */,
 			);
 			path = Pushley;
@@ -166,6 +174,15 @@
 				5984A4012411BB43002AB96E /* Info.plist */,
 			);
 			path = PushleyUITests;
+			sourceTree = "<group>";
+		};
+		5984A4142411E109002AB96E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5984A4152411E109002AB96E /* cert.cer */,
+				5984A4162411E109002AB96E /* cert.p12 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		93F85E8A81A551FAFF6940F4 /* Pods */ = {
@@ -293,6 +310,8 @@
 				5984A3EA2411BB43002AB96E /* LaunchScreen.storyboard in Resources */,
 				5984A3E72411BB43002AB96E /* Preview Assets.xcassets in Resources */,
 				5984A3E42411BB43002AB96E /* Assets.xcassets in Resources */,
+				5984A4182411E109002AB96E /* cert.p12 in Resources */,
+				5984A4172411E109002AB96E /* cert.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +441,7 @@
 			files = (
 				5984A3DE2411BB40002AB96E /* AppDelegate.swift in Sources */,
 				5984A3E02411BB40002AB96E /* SceneDelegate.swift in Sources */,
+				5984A41A2411E4D3002AB96E /* PKCS12.swift in Sources */,
 				5984A40F2411C0FD002AB96E /* PushViewModel.swift in Sources */,
 				5984A3E22411BB40002AB96E /* ContentView.swift in Sources */,
 			);
