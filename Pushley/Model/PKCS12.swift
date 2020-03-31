@@ -6,16 +6,16 @@
 //  Copyright © 2020 Johnnie Cheng. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class PKCS12  {
     
-    var label:String?
-    var keyID:Data?
-    var trust:SecTrust?
-    var certChain:[SecTrust]?
-    var identity:SecIdentity?
-    let securityError:OSStatus
+    var label: String?
+    var keyID: Data?
+    var trust: SecTrust?
+    var certChain: [SecTrust]?
+    var identity: SecIdentity?
+    let securityError: OSStatus
 
     init(data:Data, password:String) {
         var items:CFArray?
@@ -46,6 +46,15 @@ class PKCS12  {
             certificates: self.certChain!,
             persistence: URLCredential.Persistence.forSession)
 
+    }
+    
+    var certificate: SecCertificate? {
+        guard let identity = identity else { return nil }
+        
+        var certificate: SecCertificate? = nil
+        SecIdentityCopyCertificate(identity, &certificate)
+        
+        return certificate
     }
 
 }
