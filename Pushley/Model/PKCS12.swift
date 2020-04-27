@@ -1,5 +1,5 @@
 //
-//  PKCS12.swift
+//  Certificate.swift
 //  Pushley
 //
 //  Created by Johnnie Cheng on 6/3/20.
@@ -8,16 +8,20 @@
 
 import Foundation
 
-class PKCS12  {
+class Certificate  {
     
-    var label: String?
+    var label: String
     var keyID: Data?
     var trust: SecTrust?
     var certChain: [SecTrust]?
     var identity: SecIdentity?
     let securityError: OSStatus
+    var isValid: Bool {
+        return securityError == errSecSuccess
+    }
 
-    init(data:Data, password:String) {
+    init(data: Data, password: String) {
+        self.label = ""
         var items:CFArray?
         let certOptions:NSDictionary = [kSecImportExportPassphrase as NSString:password as NSString]
 
@@ -28,7 +32,7 @@ class PKCS12  {
             let certItems:Array = (items! as Array)
             let dict:Dictionary<String, AnyObject> = certItems.first! as! Dictionary<String, AnyObject>
 
-            self.label = dict[kSecImportItemLabel as String] as? String
+            self.label = (dict[kSecImportItemLabel as String] as? String) ?? ""
             self.keyID = dict[kSecImportItemKeyID as String] as? Data
             self.trust = dict[kSecImportItemTrust as String] as! SecTrust?
             self.certChain = dict[kSecImportItemCertChain as String] as? [SecTrust]
@@ -36,7 +40,7 @@ class PKCS12  {
         }
     }
 
-    public convenience init(mainBundleResource:String, resourceType:String, password:String) {
+    public convenience init(mainBundleResource: String, resourceType: String, password: String) {
         self.init(data: NSData(contentsOfFile: Bundle.main.path(forResource: mainBundleResource, ofType:resourceType)!)! as Data, password: password)
     }
 

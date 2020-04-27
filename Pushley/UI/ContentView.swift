@@ -10,20 +10,35 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private let viewModel: PushViewModelProtocol = PushViewModel()
-    
-    var strengths = ["Mild", "Medium", "Mature"]
-
-    @State private var selectedStrength = 0
+    @ObservedObject var viewModel = PushViewModel()
     
     var body: some View {
-        VStack {
-            Picker(selection: $selectedStrength, label: Text("Strength")) {
-                ForEach(0 ..< strengths.count) {
-                    Text(self.strengths[$0])
+        VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+                Text("Certificate: ")
+                if viewModel.certificate != nil {
+                    Text(viewModel.certificate!.label)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                        .padding(.top, 5)
+                        .padding(.bottom, 5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0), lineWidth: 1)
+                    )
                 }
+                Button(
+                    action:{ self.viewModel.showCertificatePicker() },
+                    label: { Text("Select...") }
+                )
+                Spacer()
             }
+            
+            
+            
+            Spacer()
         }
+        .padding(10)
         .frame(minWidth: 500, maxWidth: .infinity,
                minHeight: 400, maxHeight: .infinity)
         .onAppear() {

@@ -16,24 +16,18 @@ class APNNetworker {
     private let sessionManager: Session?
     private var credential: URLCredential? = nil
     
-    init(certificatePath: String?) {
-        if let certificatePath = certificatePath {
-            let data = try! Data(contentsOf: URL(fileURLWithPath: certificatePath))
-            let password = ""
-            let p12Cert = PKCS12(data: data, password: password)
-            
-            if let identity = p12Cert.identity,
-                let certificate = p12Cert.certificate
-            {
-                credential = URLCredential(identity: identity, certificates: [certificate], persistence: .permanent)
-            }
+    init(certificate: Certificate) {
+        if let identity = certificate.identity,
+            let certificate = certificate.certificate
+        {
+            credential = URLCredential(identity: identity, certificates: [certificate], persistence: .permanent)
         }
         
         sessionManager = Session()
     }
     
     func post() {
-        let url = "\(APNNetworker.hostname):2197/3/device/xxx"
+        let url = "\(APNNetworker.hostname):2197/3/device/b88a750cd55f17d34567c4b7267f5ea0181546dbe55a15f875fddfb481cf813f"
         
         let parameters = ["aps": ["alert": "Hello"]]
         let request = sessionManager?.request(url,
