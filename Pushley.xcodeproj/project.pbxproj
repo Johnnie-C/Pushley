@@ -14,14 +14,15 @@
 		5915DD2A2432F25C003E7816 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5915DD282432F25C003E7816 /* Main.storyboard */; };
 		5915DD362432F25C003E7816 /* PushleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD352432F25C003E7816 /* PushleyTests.swift */; };
 		5915DD412432F25C003E7816 /* PushleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD402432F25C003E7816 /* PushleyUITests.swift */; };
-		5915DD5D2432F2DF003E7816 /* PKCS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD522432F2DF003E7816 /* PKCS12.swift */; };
+		5915DD5D2432F2DF003E7816 /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD522432F2DF003E7816 /* Certificate.swift */; };
 		5915DD5E2432F2DF003E7816 /* APNNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD542432F2DF003E7816 /* APNNetworker.swift */; };
 		5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD552432F2DF003E7816 /* JsonBodyStringEncoding.swift */; };
 		5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD582432F2DF003E7816 /* PushViewModel.swift */; };
-		5915DD612432F2DF003E7816 /* DropdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD592432F2DF003E7816 /* DropdownList.swift */; };
 		5915DD622432F2DF003E7816 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD5A2432F2DF003E7816 /* ContentView.swift */; };
 		596AA61C24566B82007EA704 /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61B24566B82007EA704 /* FilePicker.swift */; };
 		596AA61E24567A40007EA704 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61D24567A40007EA704 /* Dialog.swift */; };
+		596AA62024568629007EA704 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61F24568629007EA704 /* PushNotification.swift */; };
+		59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D332456D9A5000E4BF0 /* DateExtension.swift */; };
 		6EC47D92F866450D9D87D5CA /* Pods_Pushley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */; };
 		9327E71BBAD774EFAE9B0EFB /* Pods_Pushley_PushleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */; };
 /* End PBXBuildFile section */
@@ -61,14 +62,15 @@
 		5915DD3C2432F25C003E7816 /* PushleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5915DD402432F25C003E7816 /* PushleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushleyUITests.swift; sourceTree = "<group>"; };
 		5915DD422432F25C003E7816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5915DD522432F2DF003E7816 /* PKCS12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKCS12.swift; sourceTree = "<group>"; };
+		5915DD522432F2DF003E7816 /* Certificate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
 		5915DD542432F2DF003E7816 /* APNNetworker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNNetworker.swift; sourceTree = "<group>"; };
 		5915DD552432F2DF003E7816 /* JsonBodyStringEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonBodyStringEncoding.swift; sourceTree = "<group>"; };
 		5915DD582432F2DF003E7816 /* PushViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
-		5915DD592432F2DF003E7816 /* DropdownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownList.swift; sourceTree = "<group>"; };
 		5915DD5A2432F2DF003E7816 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		596AA61B24566B82007EA704 /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
 		596AA61D24567A40007EA704 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		596AA61F24568629007EA704 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		59BF8D332456D9A5000E4BF0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley_PushleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65EC6BF82EC4BCB18C0E4DE /* Pods-Pushley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley.debug.xcconfig"; path = "Target Support Files/Pods-Pushley/Pods-Pushley.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,9 +146,11 @@
 			children = (
 				5915DD1F2432F25B003E7816 /* AppDelegate.swift */,
 				5915DD512432F2DF003E7816 /* Model */,
+				59BF8D312456D97D000E4BF0 /* Extension */,
 				5915DD532432F2DF003E7816 /* Network */,
-				5915DD4E2432F2DF003E7816 /* Resources */,
+				59BF8D322456D990000E4BF0 /* Helper */,
 				5915DD562432F2DF003E7816 /* UI */,
+				5915DD4E2432F2DF003E7816 /* Resources */,
 				5915DD232432F25C003E7816 /* Assets.xcassets */,
 				5915DD282432F25C003E7816 /* Main.storyboard */,
 				5915DD2B2432F25C003E7816 /* Info.plist */,
@@ -192,7 +196,8 @@
 		5915DD512432F2DF003E7816 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5915DD522432F2DF003E7816 /* PKCS12.swift */,
+				5915DD522432F2DF003E7816 /* Certificate.swift */,
+				596AA61F24568629007EA704 /* PushNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,7 +217,6 @@
 				596AA61A24566B77007EA704 /* General */,
 				5915DD572432F2DF003E7816 /* ViewModel */,
 				5915DD5A2432F2DF003E7816 /* ContentView.swift */,
-				5915DD592432F2DF003E7816 /* DropdownList.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -228,10 +232,25 @@
 		596AA61A24566B77007EA704 /* General */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		59BF8D312456D97D000E4BF0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				59BF8D332456D9A5000E4BF0 /* DateExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		59BF8D322456D990000E4BF0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
 				596AA61B24566B82007EA704 /* FilePicker.swift */,
 				596AA61D24567A40007EA704 /* Dialog.swift */,
 			);
-			path = General;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DFE3883D5531B14879316A8F /* Frameworks */ = {
@@ -484,14 +503,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5915DD5E2432F2DF003E7816 /* APNNetworker.swift in Sources */,
+				59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */,
 				596AA61C24566B82007EA704 /* FilePicker.swift in Sources */,
 				5915DD622432F2DF003E7816 /* ContentView.swift in Sources */,
 				596AA61E24567A40007EA704 /* Dialog.swift in Sources */,
-				5915DD5D2432F2DF003E7816 /* PKCS12.swift in Sources */,
-				5915DD612432F2DF003E7816 /* DropdownList.swift in Sources */,
+				5915DD5D2432F2DF003E7816 /* Certificate.swift in Sources */,
 				5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */,
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,
 				5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */,
+				596AA62024568629007EA704 /* PushNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

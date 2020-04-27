@@ -34,12 +34,64 @@ struct ContentView: View {
                 Spacer()
             }
             
+            HStack(alignment: .center, spacing: 45) {
+                Picker("Environment:", selection: self.$viewModel.environment) {
+                    Text("Production").tag(Environment.production)
+                    Text("Sandbox").tag(Environment.sandbox)
+                }
+                .frame(maxWidth: 350)
+                .pickerStyle(SegmentedPickerStyle())
+                
+                Picker("Push Type: ", selection: self.$viewModel.pushType) {
+                    Text(PushType.alert.rawValue).tag(PushType.alert)
+                    Text(PushType.background.rawValue).tag(PushType.background)
+                    Text(PushType.voip.rawValue).tag(PushType.voip)
+                }
+                .frame(maxWidth: 200)
+            }
+            .padding(.bottom, 10)
             
+            HStack(alignment: .center) {
+                Text("Title:")
+                TextField("", text: self.$viewModel.notificationTitle)
+                    .cornerRadius(5)
+            }
             
-            Spacer()
+            HStack(alignment: .center) {
+                Text("Body:")
+                TextField("", text: self.$viewModel.notificationBody)
+                    .cornerRadius(5)
+            }
+                
+            HStack(alignment: .center) {
+                Text("Target Token:")
+                TextField("", text: self.$viewModel.targetToken)
+                    .cornerRadius(5)
+            }
+            .padding(.bottom, 15)
+            
+            ScrollView {
+                Text(self.viewModel.log)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(5)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .cornerRadius(5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
+            .padding(.bottom, 10)
+            
+            HStack(alignment: .center) {
+                Spacer()
+                Button(action: {
+                    self.viewModel.send()
+                }) { Text("Send") }
+            }
         }
         .padding(10)
-        .frame(minWidth: 500, maxWidth: .infinity,
+        .frame(minWidth: 600, maxWidth: .infinity,
                minHeight: 400, maxHeight: .infinity)
         .onAppear() {
 //            self.viewModel.test()

@@ -6,7 +6,7 @@ target 'Pushley' do
   use_frameworks!
 
   # Pods for Pushley
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5.0.2'
 
   target 'PushleyTests' do
     inherit! :search_paths
