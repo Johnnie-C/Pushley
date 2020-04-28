@@ -33,9 +33,10 @@ class Dialog: NSObject {
         }
         textField.stringValue = defaultValue
         alert.accessoryView = textField
+        alert.window.initialFirstResponder = textField
         
         let response: NSApplication.ModalResponse = alert.runModal()
-
+        
         if (response == NSApplication.ModalResponse.alertFirstButtonReturn) {
             return textField.stringValue
         }

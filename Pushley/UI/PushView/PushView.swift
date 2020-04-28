@@ -56,18 +56,21 @@ struct PushView: View {
                 Text("Title:")
                 TextField("", text: self.$viewModel.notificationTitle)
                     .cornerRadius(5)
+                    .focusable()
             }
             
             HStack(alignment: .center) {
                 Text("Body:")
                 TextField("", text: self.$viewModel.notificationBody)
                     .cornerRadius(5)
+                    .focusable()
             }
                 
             HStack(alignment: .center) {
                 Text("Target Token:")
                 TextField("", text: self.$viewModel.targetToken)
                     .cornerRadius(5)
+                    .focusable()
             }
             .padding(.bottom, 15)
             
