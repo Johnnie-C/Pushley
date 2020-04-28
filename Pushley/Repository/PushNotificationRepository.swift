@@ -14,9 +14,14 @@ protocol PushNotificationRepositoryProtocol {
     func sendNotification(notification: PushNotification,
                           completion: @escaping (Error?) -> Void)
     
+    func cacheNotification(_ notification: PushNotification)
+    func loadCachedNotification() -> PushNotification?
+    
 }
 
 class PushNotificationRepository: PushNotificationRepositoryProtocol {
+    
+    private static let lastNotificationKey = "lastNotification"
     
     private let netWorker: APNNetworkerProtocol
     
@@ -31,23 +36,29 @@ class PushNotificationRepository: PushNotificationRepositoryProtocol {
     func sendNotification(notification: PushNotification,
                           completion: @escaping (Error?) -> Void)
     {
-        let url = "\(notification.environment.host)/3/device/\(notification.targetToken)"
+        let url = "\(notification.environment.host)/3/device/\(notification.deviceToken)"
         let headers = ["apns-push-type": notification.type.rawValue,
                        "apns-priority": notification.type.defaultPriority.rawValue]
         netWorker.post(url: url,
                        parameters: notification.toDictionary,
                        headers: headers)
         { response  in
-            if let data = response.data {
-                let str = String(decoding: data, as: UTF8.self)
-                print("Data: \(str)")
-            }
             completion(response.error)
-            print("Request: \(response.request)")
-            print("Response: \(response)")
-            print("Request headers: \(response.response?.allHeaderFields)")
-            print("Response code: \(response.response?.statusCode)")
         }
+    }
+    
+    func cacheNotification(_ notification: PushNotification) {
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(notification) {
+            UserDefaults.standard.set(data, forKey: PushNotificationRepository.lastNotificationKey)
+        }
+    }
+    
+    func loadCachedNotification() -> PushNotification? {
+        if let data = UserDefaults.standard.data(forKey: PushNotificationRepository.lastNotificationKey) {
+            return try? PushNotification.decoded(data: data)
+        }
+        return nil
     }
     
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Johnnie Cheng. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 import Alamofire
 import Combine
 
@@ -21,17 +21,28 @@ class PushViewModel: PushViewModelProtocol {
     
     private let pushNotificationRepository: PushNotificationRepositoryProtocol
     
-    init(pushNotificationRepository: PushNotificationRepositoryProtocol) {
-        self.pushNotificationRepository = pushNotificationRepository
-    }
-    
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
-    @Published var notificationTitle = ""
+    @Published var notificationTitle = "r"
     @Published var notificationBody = ""
-    @Published var targetToken = ""
+    @Published var deviceToken = ""
     @Published var log = ""
+    
+    init(pushNotificationRepository: PushNotificationRepositoryProtocol) {
+        self.pushNotificationRepository = pushNotificationRepository
+        loadCachedNotification()
+    }
+    
+    func loadCachedNotification() {
+        if let notification = pushNotificationRepository.loadCachedNotification() {
+            environment = notification.environment
+            pushType = notification.type
+            notificationTitle = notification.title ?? ""
+            notificationBody = notification.body ?? ""
+            deviceToken = notification.deviceToken
+        }
+    }
     
     func showCertificatePicker() {
         let pickerBuilder = FilePickerBuilder.defaultSingleFilePicker()
@@ -59,12 +70,7 @@ class PushViewModel: PushViewModelProtocol {
     }
     
     func send() {
-        guard certificate?.isValid ?? false else {
-            self.log("Failed to push -- Invalid certificate")
-            return
-        }
-        
-        let notification = PushNotification(targetToken: targetToken,
+        let notification = PushNotification(deviceToken: deviceToken,
                                             title: notificationTitle,
                                             body: notificationBody,
                                             environment: environment,
@@ -74,6 +80,12 @@ class PushViewModel: PushViewModelProtocol {
                                             badge: nil,
                                             contentAvailable: pushType.defaultContentAvailable,
                                             extraData: nil)
+        pushNotificationRepository.cacheNotification(notification)
+        
+        guard certificate?.isValid ?? false else {
+            self.log("Failed to push -- Invalid certificate")
+            return
+        }
         
         pushNotificationRepository.sendNotification(notification: notification) { error in
             let result = error == nil ? "Notification send success!" : error.debugDescription

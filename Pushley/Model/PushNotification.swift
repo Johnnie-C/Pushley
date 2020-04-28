@@ -13,6 +13,18 @@ enum Environment: String {
     case production
     case sandbox
     
+    init(environment: String?) {
+        if environment == Environment.production.rawValue {
+            self = .production
+        }
+        else if environment == Environment.sandbox.rawValue {
+            self = .sandbox
+        }
+        else {
+            self = .sandbox
+        }
+    }
+    
     var host: String {
         switch self {
         case .production:
@@ -29,6 +41,21 @@ enum PushType: String {
     case alert
     case background
     case voip
+    
+    init(pushType: String?) {
+        if pushType == PushType.alert.rawValue {
+            self = .alert
+        }
+        else if pushType == PushType.background.rawValue {
+            self = .background
+        }
+        else if pushType == PushType.voip.rawValue {
+            self = .voip
+        }
+        else {
+            self = .alert
+        }
+    }
     
     var defaultPriority: Priority {
         switch self {
@@ -59,11 +86,23 @@ enum Priority: String {
     case normal = "5"
     case high = "10"
     
+    init(priority: String?) {
+        if priority == Priority.normal.rawValue {
+            self = .normal
+        }
+        else if priority == Priority.high.rawValue {
+            self = .high
+        }
+        else {
+            self = .high
+        }
+    }
+    
 }
 
-struct PushNotification {
+struct PushNotification: Codable {
     
-    let targetToken: String
+    let deviceToken: String
     let title: String?
     let body: String?
     let environment: Environment
@@ -74,7 +113,65 @@ struct PushNotification {
     let contentAvailable: Bool
     let extraData: [String: Any]?
     
-    init(targetToken: String,
+    enum CodingKeys: String, CodingKey {
+        case deviceToken
+        case title
+        case body
+        case environment
+        case type
+        case priority
+        case sound
+        case badge
+        case contentAvailable
+        case extraData
+    }
+    
+    init(from decoder: Decoder) throws {
+        let keys = try decoder.container(keyedBy: CodingKeys.self)
+        deviceToken = try keys.decodeIfPresent(.deviceToken) ?? ""
+        title = try keys.decodeIfPresent(.title)
+        body = try keys.decodeIfPresent(.body)
+        
+        let environmentString = try keys.decodeIfPresent(.environment, as: String.self)
+        environment = Environment(environment: environmentString)
+        
+        let typeString = try keys.decodeIfPresent(.type, as: String.self)
+        type = PushType(pushType: typeString)
+        
+        let priorityString = try keys.decodeIfPresent(.priority, as: String.self)
+        priority = Priority(priority: priorityString)
+        
+        sound = try keys.decodeIfPresent(.sound)
+        badge = try keys.decodeIfPresent(.badge)
+        contentAvailable = try keys.decodeIfPresent(.contentAvailable) ?? false
+        
+        if let extraDataRawData = try keys.decodeIfPresent(.extraData, as: Data.self) {
+            extraData = try? JSONSerialization.jsonObject(with: extraDataRawData) as? [String: Any]
+        }
+        else {
+            extraData = nil
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(deviceToken, forKey: .deviceToken)
+        try container.encode(title, forKey: .title)
+        try container.encode(body, forKey: .body)
+        try container.encode(environment.rawValue, forKey: .environment)
+        try container.encode(type.rawValue, forKey: .type)
+        try container.encode(priority.rawValue, forKey: .priority)
+        try container.encode(sound, forKey: .sound)
+        try container.encode(badge, forKey: .badge)
+        try container.encode(contentAvailable, forKey: .contentAvailable)
+        
+        if let extraData = extraData {
+            let extraDataRawData = try? JSONSerialization.data(withJSONObject: extraData, options: [])
+            try container.encode(extraDataRawData, forKey: .extraData)
+        }
+    }
+    
+    init(deviceToken: String,
          title: String? = nil,
          body: String? = nil,
          environment: Environment,
@@ -85,7 +182,7 @@ struct PushNotification {
          contentAvailable: Bool = false,
          extraData: [String: Any]? = nil)
     {
-        self.targetToken = targetToken
+        self.deviceToken = deviceToken
         self.title = title
         self.body = body
         self.environment = environment

@@ -22,6 +22,7 @@
 		596AA61C24566B82007EA704 /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61B24566B82007EA704 /* FilePicker.swift */; };
 		596AA61E24567A40007EA704 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61D24567A40007EA704 /* Dialog.swift */; };
 		596AA62024568629007EA704 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61F24568629007EA704 /* PushNotification.swift */; };
+		59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B082012457F14F003DA6B7 /* CodableExtensions.swift */; };
 		59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D332456D9A5000E4BF0 /* DateExtension.swift */; };
 		59BF8D392457AB67000E4BF0 /* PushNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */; };
 		59BF8D3C2457B3DB000E4BF0 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */; };
@@ -72,6 +73,7 @@
 		596AA61B24566B82007EA704 /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
 		596AA61D24567A40007EA704 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		596AA61F24568629007EA704 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		59B082012457F14F003DA6B7 /* CodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
 		59BF8D332456D9A5000E4BF0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationRepository.swift; sourceTree = "<group>"; };
 		59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				59BF8D332456D9A5000E4BF0 /* DateExtension.swift */,
+				59B082012457F14F003DA6B7 /* CodableExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				59BF8D392457AB67000E4BF0 /* PushNotificationRepository.swift in Sources */,
 				5915DD5D2432F2DF003E7816 /* Certificate.swift in Sources */,
 				5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */,
+				59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */,
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,
 				5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */,
 				596AA62024568629007EA704 /* PushNotification.swift in Sources */,

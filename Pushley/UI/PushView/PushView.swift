@@ -67,8 +67,8 @@ struct PushView: View {
             }
                 
             HStack(alignment: .center) {
-                Text("Target Token:")
-                TextField("", text: self.$viewModel.targetToken)
+                Text("Device Token:")
+                TextField("", text: self.$viewModel.deviceToken)
                     .cornerRadius(5)
                     .focusable()
             }
