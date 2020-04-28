@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PushView.swift
 //  Pushley
 //
 //  Created by Johnnie Cheng on 6/3/20.
@@ -8,9 +8,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PushView: View {
     
-    @ObservedObject var viewModel = PushViewModel()
+    @ObservedObject
+    var viewModel: PushViewModel = DIContainer.shared.injectPushViewModel()!
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -100,10 +101,10 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PushView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentView()
+        PushView()
     }
     
 }

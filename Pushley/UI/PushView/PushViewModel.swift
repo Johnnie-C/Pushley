@@ -19,12 +19,15 @@ protocol PushViewModelProtocol: ObservableObject {
 
 class PushViewModel: PushViewModelProtocol {
     
-    private var networker: APNNetworker?
+    private let pushNotificationRepository: PushNotificationRepositoryProtocol
+    
+    init(pushNotificationRepository: PushNotificationRepositoryProtocol) {
+        self.pushNotificationRepository = pushNotificationRepository
+    }
     
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
-//    @Published var contentAvailable = false
     @Published var notificationTitle = ""
     @Published var notificationBody = ""
     @Published var targetToken = ""
@@ -41,6 +44,7 @@ class PushViewModel: PushViewModelProtocol {
                 let certificate = Certificate(data: data, password: password)
                 if certificate.isValid {
                     self.certificate = certificate
+                    self.pushNotificationRepository.updateCertificate(certificate)
                     self.log("Certificate loaded! -- \(self.certificate?.label ?? "")")
                 }
                 else {
@@ -59,11 +63,35 @@ class PushViewModel: PushViewModelProtocol {
             self.log("Failed to push -- Invalid certificate")
             return
         }
+        
+        let notification = PushNotification(targetToken: targetToken,
+                                            title: notificationTitle,
+                                            body: notificationBody,
+                                            environment: environment,
+                                            type: pushType,
+                                            priority: pushType.defaultPriority,
+                                            sound: nil,
+                                            badge: nil,
+                                            contentAvailable: pushType.defaultContentAvailable,
+                                            extraData: nil)
+        
+        pushNotificationRepository.sendNotification(notification: notification) { error in
+            let result = error == nil ? "Notification send success!" : error.debugDescription
+            self.log(result)
+        }
     }
     
     private func log(_ log: String) {
-        
         self.log.append("\(self.log.isEmpty ? "" : "\n")\(Date().timeOnlyString): \(log)")
     }
 
+}
+
+extension PushViewModel: Injectable {
+    
+    static func inject<T>(container: DIContainer) -> T? {
+        let pushNotificationRepository = container.injectPushNotificationRepository()!
+        return PushViewModel(pushNotificationRepository: pushNotificationRepository) as? T
+    }
+    
 }
