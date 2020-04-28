@@ -55,4 +55,24 @@ class Dialog: NSObject {
         alert.runModal()
     }
     
+    
+    /// show yes cancel alert
+    /// - Parameters:
+    ///   - title: title
+    ///   - informativeText: informative Text
+    ///   - frame: initial frame
+    /// - Returns: true if Yes tapped, otherwise return false
+    static func showYesCancelAlert(title: String,
+                                   informativeText: String = "",
+                                   frame: NSRect = NSRect(x: 0, y: 0, width: 200, height: 24))
+        -> Bool
+    {
+        let alert = NSAlert()
+        alert.addButton(withTitle: "Cancel")
+        alert.addButton(withTitle: "Yes")
+        alert.messageText = title
+        alert.informativeText = informativeText
+        return alert.runModal() == .alertSecondButtonReturn
+    }
+    
 }

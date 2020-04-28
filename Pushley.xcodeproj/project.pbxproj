@@ -23,6 +23,7 @@
 		596AA61E24567A40007EA704 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61D24567A40007EA704 /* Dialog.swift */; };
 		596AA62024568629007EA704 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61F24568629007EA704 /* PushNotification.swift */; };
 		59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B082012457F14F003DA6B7 /* CodableExtensions.swift */; };
+		59B08207245813DA003DA6B7 /* SimpleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B08206245813DA003DA6B7 /* SimpleButtonStyle.swift */; };
 		59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D332456D9A5000E4BF0 /* DateExtension.swift */; };
 		59BF8D392457AB67000E4BF0 /* PushNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */; };
 		59BF8D3C2457B3DB000E4BF0 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */; };
@@ -74,6 +75,7 @@
 		596AA61D24567A40007EA704 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		596AA61F24568629007EA704 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		59B082012457F14F003DA6B7 /* CodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
+		59B08206245813DA003DA6B7 /* SimpleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonStyle.swift; sourceTree = "<group>"; };
 		59BF8D332456D9A5000E4BF0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationRepository.swift; sourceTree = "<group>"; };
 		59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				596AA61A24566B77007EA704 /* General */,
+				59B08205245813D2003DA6B7 /* Style */,
 				5915DD572432F2DF003E7816 /* PushView */,
 			);
 			path = UI;
@@ -231,8 +234,8 @@
 		5915DD572432F2DF003E7816 /* PushView */ = {
 			isa = PBXGroup;
 			children = (
-				5915DD5A2432F2DF003E7816 /* PushView.swift */,
 				5915DD582432F2DF003E7816 /* PushViewModel.swift */,
+				5915DD5A2432F2DF003E7816 /* PushView.swift */,
 			);
 			path = PushView;
 			sourceTree = "<group>";
@@ -242,6 +245,14 @@
 			children = (
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		59B08205245813D2003DA6B7 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				59B08206245813DA003DA6B7 /* SimpleButtonStyle.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		59BF8D312456D97D000E4BF0 /* Extension */ = {
@@ -540,6 +551,7 @@
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,
 				5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */,
 				596AA62024568629007EA704 /* PushNotification.swift in Sources */,
+				59B08207245813DA003DA6B7 /* SimpleButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,9 +24,10 @@ class PushViewModel: PushViewModelProtocol {
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
-    @Published var notificationTitle = "r"
+    @Published var notificationTitle = ""
     @Published var notificationBody = ""
     @Published var deviceToken = ""
+    @Published var extraDataJSON = ""
     @Published var log = ""
     
     init(pushNotificationRepository: PushNotificationRepositoryProtocol) {
@@ -66,6 +67,23 @@ class PushViewModel: PushViewModelProtocol {
             else {
                 self.log("Cancel loading certificate")
             }
+        }
+    }
+    
+    func clearLog() {
+        log = ""
+    }
+    
+    func resetIfNeeded() {
+        if Dialog.showYesCancelAlert(title: "Reset notification and certificate?") {
+            certificate = nil
+            environment = Environment.sandbox
+            pushType = PushType.alert
+            notificationTitle = ""
+            notificationBody = ""
+            deviceToken = ""
+            extraDataJSON = ""
+            log = ""
         }
     }
     

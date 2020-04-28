@@ -74,10 +74,25 @@ struct PushView: View {
             }
             .padding(.bottom, 15)
             
-            ScrollView {
-                Text(self.viewModel.log)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(5)
+//            HStack(alignment: .center) {
+//                Text("Extra Data JSON:")
+//                TextField("", text: self.$viewModel.extraDataJSON)
+//                    .cornerRadius(5)
+//                    .focusable()
+//            }
+//            .padding(.bottom, 15)
+            
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView {
+                    Text(self.viewModel.log)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(5)
+                }
+                Button(action: { self.viewModel.clearLog() }) {
+                    Image(nsImage: NSImage(named: NSImage.refreshTemplateName) ?? NSImage())
+                }
+                    .frame(width: 40, height: 40)
+                    .buttonStyle(SimpleButtonStyle())
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .cornerRadius(5)
@@ -88,6 +103,10 @@ struct PushView: View {
             .padding(.bottom, 10)
             
             HStack(alignment: .center) {
+                Button(action: {
+                    self.viewModel.resetIfNeeded()
+                }) { Text("Reset") }
+                    .buttonStyle(SimpleButtonStyle(style: .blue))
                 Spacer()
                 Button(action: {
                     self.viewModel.send()
@@ -98,7 +117,7 @@ struct PushView: View {
         .frame(minWidth: 600, maxWidth: .infinity,
                minHeight: 400, maxHeight: .infinity)
         .onAppear() {
-//            self.viewModel.test()
+            
         }
     }
     
