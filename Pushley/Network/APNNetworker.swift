@@ -64,8 +64,8 @@ class APNNetworker: APNNetworkerProtocol {
 
 extension APNNetworker: Injectable {
     
-    static func inject<T>(container: DIContainer) -> T? {
-        return APNNetworker() as? T
+    static func inject<T>(container: DIContainer) -> T {
+        return APNNetworker() as! T
     }
     
 }

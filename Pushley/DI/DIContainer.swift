@@ -10,24 +10,42 @@ import Cocoa
 
 protocol Injectable {
     
-    static func inject<T>(container: DIContainer) -> T?
+    static func inject<T>(container: DIContainer) -> T
     
 }
 
 class DIContainer: NSObject {
 
     static let shared = DIContainer()
+    
+    func inject<T: Injectable>(_ T: T.Type) -> T {
+        return T.inject(container: self)
+    }
 
-    func injectAPNNetworker() -> APNNetworkerProtocol? {
-        return APNNetworker.inject(container: self)
+    func injectAPNNetworker() -> APNNetworkerProtocol {
+        return inject(APNNetworker.self)
     }
     
-    func injectPushNotificationRepository() -> PushNotificationRepositoryProtocol? {
-        return PushNotificationRepository.inject(container: self)
+}
+
+//MARK: - Interactor
+extension DIContainer {
+    
+    func injectPushNotificationInteractor() -> PushNotificationInteractorProtocol {
+        return inject(PushNotificationInteractor.self)
     }
     
-    func injectPushViewModel() -> PushViewModel? {
-        return PushViewModel.inject(container: self)
+}
+
+//MARK: - PushView
+extension DIContainer {
+    
+    func injectPushViewModel() -> some PushViewModelProtocol {
+        return inject(PushViewModel.self)
+    }
+    
+    func injectPushViewRouter() -> some PushViewRouterProtocol {
+        return inject(PushViewRouter.self)
     }
     
 }

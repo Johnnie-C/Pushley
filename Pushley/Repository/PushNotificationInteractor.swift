@@ -1,5 +1,5 @@
 //
-//  PushNotificationRepository.swift
+//  PushNotificationInteractor.swift
 //  Pushley
 //
 //  Created by Johnnie Cheng on 28/4/20.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol PushNotificationRepositoryProtocol {
+protocol PushNotificationInteractorProtocol {
     
     func updateCertificate(_ certificate: Certificate)
     func sendNotification(notification: PushNotification,
@@ -19,7 +19,7 @@ protocol PushNotificationRepositoryProtocol {
     
 }
 
-class PushNotificationRepository: PushNotificationRepositoryProtocol {
+class PushNotificationInteractor: PushNotificationInteractorProtocol {
     
     private static let lastNotificationKey = "lastNotification"
     
@@ -50,12 +50,12 @@ class PushNotificationRepository: PushNotificationRepositoryProtocol {
     func cacheNotification(_ notification: PushNotification) {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(notification) {
-            UserDefaults.standard.set(data, forKey: PushNotificationRepository.lastNotificationKey)
+            UserDefaults.standard.set(data, forKey: PushNotificationInteractor.lastNotificationKey)
         }
     }
     
     func loadCachedNotification() -> PushNotification? {
-        if let data = UserDefaults.standard.data(forKey: PushNotificationRepository.lastNotificationKey) {
+        if let data = UserDefaults.standard.data(forKey: PushNotificationInteractor.lastNotificationKey) {
             return try? PushNotification.decoded(data: data)
         }
         return nil
@@ -63,11 +63,11 @@ class PushNotificationRepository: PushNotificationRepositoryProtocol {
     
 }
 
-extension PushNotificationRepository: Injectable {
+extension PushNotificationInteractor: Injectable {
     
-    static func inject<T>(container: DIContainer) -> T? {
-        let networker = container.injectAPNNetworker()!
-        return PushNotificationRepository(netWorker: networker) as? T
+    static func inject<T>(container: DIContainer) -> T {
+        let networker = container.injectAPNNetworker()
+        return PushNotificationInteractor(netWorker: networker) as! T
     }
     
 }

@@ -10,9 +10,28 @@ import Foundation
 import Alamofire
 import Combine
 
-class PushViewModel: ObservableObject {
+protocol PushViewModelProtocol: ObservableObject {
     
-    private let pushNotificationRepository: PushNotificationRepositoryProtocol
+    var certificate: Certificate? { get set }
+    var environment: Environment { get set }
+    var pushType: PushType { get set }
+    var notificationTitle: String { get set }
+    var notificationBody: String { get set }
+    var deviceToken: String { get set }
+    var extraDataJSON: String { get set }
+    var log: String { get set }
+    
+    func showCertificatePicker()
+    func clearLog()
+    func resetIfNeeded()
+    func send()
+    
+}
+
+class PushViewModel: PushViewModelProtocol {
+    
+    private let pushNotificationInteractor: PushNotificationInteractorProtocol
+    private let pushViewRouter: PushViewRouterProtocol
     
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
@@ -23,13 +42,16 @@ class PushViewModel: ObservableObject {
     @Published var extraDataJSON = ""
     @Published var log = ""
     
-    init(pushNotificationRepository: PushNotificationRepositoryProtocol) {
-        self.pushNotificationRepository = pushNotificationRepository
+    init(pushNotificationInteractor: PushNotificationInteractorProtocol,
+         pushViewRouter: PushViewRouterProtocol)
+    {
+        self.pushNotificationInteractor = pushNotificationInteractor
+        self.pushViewRouter = pushViewRouter
         loadCachedNotification()
     }
     
     func loadCachedNotification() {
-        if let notification = pushNotificationRepository.loadCachedNotification() {
+        if let notification = pushNotificationInteractor.loadCachedNotification() {
             environment = notification.environment
             pushType = notification.type
             notificationTitle = notification.title ?? ""
@@ -49,7 +71,7 @@ class PushViewModel: ObservableObject {
                 let certificate = Certificate(data: data, password: password)
                 if certificate.isValid {
                     self.certificate = certificate
-                    self.pushNotificationRepository.updateCertificate(certificate)
+                    self.pushNotificationInteractor.updateCertificate(certificate)
                     self.log("Certificate loaded! -- \(self.certificate?.label ?? "")")
                 }
                 else {
@@ -91,14 +113,14 @@ class PushViewModel: ObservableObject {
                                             badge: nil,
                                             contentAvailable: pushType.defaultContentAvailable,
                                             extraData: nil)
-        pushNotificationRepository.cacheNotification(notification)
+        pushNotificationInteractor.cacheNotification(notification)
         
         guard certificate?.isValid ?? false else {
             self.log("Failed to push -- Invalid certificate")
             return
         }
         
-        pushNotificationRepository.sendNotification(notification: notification) { error in
+        pushNotificationInteractor.sendNotification(notification: notification) { error in
             let result = error == nil ? "Notification send success!" : error.debugDescription
             self.log(result)
         }
@@ -112,9 +134,12 @@ class PushViewModel: ObservableObject {
 
 extension PushViewModel: Injectable {
     
-    static func inject<T>(container: DIContainer) -> T? {
-        let pushNotificationRepository = container.injectPushNotificationRepository()!
-        return PushViewModel(pushNotificationRepository: pushNotificationRepository) as? T
+    static func inject<T>(container: DIContainer) -> T {
+        let pushNotificationInteractor = container.injectPushNotificationInteractor()
+        let pushViewRouter = container.injectPushViewRouter()
+        
+        return PushViewModel(pushNotificationInteractor: pushNotificationInteractor,
+                             pushViewRouter: pushViewRouter) as! T
     }
     
 }

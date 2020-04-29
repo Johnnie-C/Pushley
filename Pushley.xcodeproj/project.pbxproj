@@ -19,13 +19,14 @@
 		5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD552432F2DF003E7816 /* JsonBodyStringEncoding.swift */; };
 		5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD582432F2DF003E7816 /* PushViewModel.swift */; };
 		5915DD622432F2DF003E7816 /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD5A2432F2DF003E7816 /* PushView.swift */; };
+		591DD57324593E18007CCB6A /* PushViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DD57224593E18007CCB6A /* PushViewRouter.swift */; };
 		596AA61C24566B82007EA704 /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61B24566B82007EA704 /* FilePicker.swift */; };
 		596AA61E24567A40007EA704 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61D24567A40007EA704 /* Dialog.swift */; };
 		596AA62024568629007EA704 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61F24568629007EA704 /* PushNotification.swift */; };
 		59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B082012457F14F003DA6B7 /* CodableExtensions.swift */; };
 		59B08207245813DA003DA6B7 /* SimpleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B08206245813DA003DA6B7 /* SimpleButtonStyle.swift */; };
 		59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D332456D9A5000E4BF0 /* DateExtension.swift */; };
-		59BF8D392457AB67000E4BF0 /* PushNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */; };
+		59BF8D392457AB67000E4BF0 /* PushNotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D382457AB67000E4BF0 /* PushNotificationInteractor.swift */; };
 		59BF8D3C2457B3DB000E4BF0 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */; };
 		6EC47D92F866450D9D87D5CA /* Pods_Pushley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */; };
 		9327E71BBAD774EFAE9B0EFB /* Pods_Pushley_PushleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */; };
@@ -71,13 +72,14 @@
 		5915DD552432F2DF003E7816 /* JsonBodyStringEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonBodyStringEncoding.swift; sourceTree = "<group>"; };
 		5915DD582432F2DF003E7816 /* PushViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
 		5915DD5A2432F2DF003E7816 /* PushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
+		591DD57224593E18007CCB6A /* PushViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewRouter.swift; sourceTree = "<group>"; };
 		596AA61B24566B82007EA704 /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
 		596AA61D24567A40007EA704 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		596AA61F24568629007EA704 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		59B082012457F14F003DA6B7 /* CodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
 		59B08206245813DA003DA6B7 /* SimpleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonStyle.swift; sourceTree = "<group>"; };
 		59BF8D332456D9A5000E4BF0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationRepository.swift; sourceTree = "<group>"; };
+		59BF8D382457AB67000E4BF0 /* PushNotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationInteractor.swift; sourceTree = "<group>"; };
 		59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley_PushleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 		5915DD572432F2DF003E7816 /* PushView */ = {
 			isa = PBXGroup;
 			children = (
+				591DD57224593E18007CCB6A /* PushViewRouter.swift */,
 				5915DD582432F2DF003E7816 /* PushViewModel.swift */,
 				5915DD5A2432F2DF003E7816 /* PushView.swift */,
 			);
@@ -276,7 +279,7 @@
 		59BF8D372457AAFB000E4BF0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				59BF8D382457AB67000E4BF0 /* PushNotificationRepository.swift */,
+				59BF8D382457AB67000E4BF0 /* PushNotificationInteractor.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -544,8 +547,9 @@
 				5915DD622432F2DF003E7816 /* PushView.swift in Sources */,
 				59BF8D3C2457B3DB000E4BF0 /* DIContainer.swift in Sources */,
 				596AA61E24567A40007EA704 /* Dialog.swift in Sources */,
-				59BF8D392457AB67000E4BF0 /* PushNotificationRepository.swift in Sources */,
+				59BF8D392457AB67000E4BF0 /* PushNotificationInteractor.swift in Sources */,
 				5915DD5D2432F2DF003E7816 /* Certificate.swift in Sources */,
+				591DD57324593E18007CCB6A /* PushViewRouter.swift in Sources */,
 				5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */,
 				59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */,
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,

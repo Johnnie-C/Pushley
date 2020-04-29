@@ -8,10 +8,9 @@
 
 import SwiftUI
 
-struct PushView: View {
+struct PushView<ViewModel: PushViewModelProtocol>: View {
     
-    @ObservedObject
-    var viewModel: PushViewModel = DIContainer.shared.injectPushViewModel()!
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -126,7 +125,7 @@ struct PushView: View {
 struct PushView_Previews: PreviewProvider {
     
     static var previews: some View {
-        PushView()
+        PushView(viewModel: DIContainer.shared.injectPushViewModel())
     }
     
 }
