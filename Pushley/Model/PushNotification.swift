@@ -28,7 +28,7 @@ enum Environment: String {
     var host: String {
         switch self {
         case .production:
-            return "https://gateway.push.apple.com:443"
+            return "https://api.push.apple.com:443"
         case .sandbox:
             return "https://api.sandbox.push.apple.com:443"
         }

@@ -10,14 +10,7 @@ import Foundation
 import Alamofire
 import Combine
 
-protocol PushViewModelProtocol: ObservableObject {
-    
-    var certificate: Certificate? { get }
-    func send()
-    
-}
-
-class PushViewModel: PushViewModelProtocol {
+class PushViewModel: ObservableObject {
     
     private let pushNotificationRepository: PushNotificationRepositoryProtocol
     

@@ -53,8 +53,9 @@ class APNNetworker: APNNetworkerProtocol {
         if let credential = credential {
             request?.authenticate(with: credential)
         }
-
+        
         request?.response(completionHandler: completion)
+            .validate(statusCode: 200..<300)
 
         return request
     }
