@@ -214,7 +214,7 @@ struct PushNotification: Codable {
         if let badge = badge {
             aps["badge"] = badge
         }
-        if type.defaultContentAvailable {
+        if type.defaultContentAvailable || contentAvailable {
             aps["content-available"] = 1
         }
         
@@ -224,7 +224,7 @@ struct PushNotification: Codable {
             extraData.forEach {
                 root[$0] = $1
             }
-       }
+        }
         
         return root
     }

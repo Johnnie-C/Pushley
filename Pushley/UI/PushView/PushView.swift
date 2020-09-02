@@ -47,7 +47,9 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
                     Text(PushType.background.rawValue).tag(PushType.background)
                     Text(PushType.voip.rawValue).tag(PushType.voip)
                 }
-                .frame(maxWidth: 200)
+                .pickerStyle(SegmentedPickerStyle())
+                
+                Spacer()
             }
             .padding(.bottom, 10)
             
@@ -82,11 +84,14 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
 //            .padding(.bottom, 15)
             
             ZStack(alignment: .bottomTrailing) {
-                ScrollView {
-                    Text(self.viewModel.log)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(5)
-                }
+                NSScrollableTextViewWrapper(text: self.$viewModel.log)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                    .cornerRadius(5)
+                    
                 Button(action: { self.viewModel.clearLog() }) {
                     Image(nsImage: NSImage(named: NSImage.refreshTemplateName) ?? NSImage())
                 }
@@ -94,12 +99,6 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
                     .buttonStyle(SimpleButtonStyle())
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .cornerRadius(5)
-            .overlay(
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.gray, lineWidth: 1)
-            )
-            .padding(.bottom, 10)
             
             HStack(alignment: .center) {
                 Button(action: {
