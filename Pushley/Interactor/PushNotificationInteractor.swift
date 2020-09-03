@@ -39,6 +39,7 @@ class PushNotificationInteractor: PushNotificationInteractorProtocol {
         let url = "\(notification.environment.host)/3/device/\(notification.deviceToken)"
         let headers = ["apns-push-type": notification.type.rawValue,
                        "apns-priority": notification.type.defaultPriority.rawValue]
+        
         netWorker.post(url: url,
                        parameters: notification.toDictionary,
                        headers: headers)

@@ -35,14 +35,14 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             }
             
             HStack(alignment: .center, spacing: 45) {
-                Picker("Environment:", selection: self.$viewModel.environment) {
+                Picker("Environment:", selection: $viewModel.environment) {
                     Text("Production").tag(Environment.production)
                     Text("Sandbox").tag(Environment.sandbox)
                 }
                 .frame(maxWidth: 350)
                 .pickerStyle(SegmentedPickerStyle())
                 
-                Picker("Push Type: ", selection: self.$viewModel.pushType) {
+                Picker("Push Type: ", selection: $viewModel.pushType) {
                     Text(PushType.alert.rawValue).tag(PushType.alert)
                     Text(PushType.background.rawValue).tag(PushType.background)
                     Text(PushType.voip.rawValue).tag(PushType.voip)
@@ -56,44 +56,55 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             HStack(alignment: .center, spacing: 30) {
                 Checkbox(label: "content-available", isChecked: $viewModel.contentAvailable)
                     .fixedSize()
-                
                 Checkbox(label: "mutable-content", isChecked: $viewModel.mutableContent)
                     .fixedSize()
             }
             .padding(.bottom, 10)
             
+            VStack(alignment: .leading, spacing: 3) {
+                Text("Extra Data:")
+                NSScrollableTextViewWrapper(text: $viewModel.extraDataJson,
+                                            didEndEditing: { self.viewModel.formatExtraDataJson() })
+                    .padding(.top, 5)
+                    .padding(.bottom, 5)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray, lineWidth: 1)
+                )
+                    .cornerRadius(5)
+            }
+            .padding(.bottom, 10)
+            .frame(maxHeight: 200)
+            
             HStack(alignment: .center) {
                 Text("Title:")
-                TextField("", text: self.$viewModel.notificationTitle)
+                TextField("", text: $viewModel.notificationTitle)
                     .cornerRadius(5)
                     .focusable()
             }
             
             HStack(alignment: .center) {
                 Text("Body:")
-                TextField("", text: self.$viewModel.notificationBody)
+                TextField("", text: $viewModel.notificationBody)
                     .cornerRadius(5)
                     .focusable()
             }
             
             HStack(alignment: .center) {
                 Text("Device Token:")
-                TextField("", text: self.$viewModel.deviceToken)
+                TextField("", text: $viewModel.deviceToken)
                     .cornerRadius(5)
                     .focusable()
             }
             .padding(.bottom, 15)
             
-//            HStack(alignment: .center) {
-//                Text("Extra Data JSON:")
-//                TextField("", text: self.$viewModel.extraDataJSON)
-//                    .cornerRadius(5)
-//                    .focusable()
-//            }
-//            .padding(.bottom, 15)
-            
             ZStack(alignment: .bottomTrailing) {
-                NSScrollableTextViewWrapper(text: self.$viewModel.log)
+                NSScrollableTextViewWrapper(isEditable: false,
+                                            textSize: 13,
+                                            text: $viewModel.log)
+                    .padding(.top, 5)
+                    .padding(.bottom, 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -121,8 +132,8 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             }
         }
         .padding(10)
-        .frame(minWidth: 600, maxWidth: .infinity,
-               minHeight: 400, maxHeight: .infinity)
+        .frame(minWidth: 800, maxWidth: .infinity,
+               minHeight: 800, maxHeight: .infinity)
     }
     
 }

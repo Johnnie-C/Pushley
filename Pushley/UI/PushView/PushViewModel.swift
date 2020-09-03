@@ -20,10 +20,11 @@ protocol PushViewModelProtocol: ObservableObject {
     var notificationTitle: String { get set }
     var notificationBody: String { get set }
     var deviceToken: String { get set }
-    var extraDataJSON: String { get set }
+    var extraDataJson: String { get set }
     var log: String { get set }
     
     func showCertificatePicker()
+    func formatExtraDataJson()
     func clearLog()
     func resetIfNeeded()
     func send()
@@ -43,7 +44,7 @@ class PushViewModel: PushViewModelProtocol {
     @Published var notificationTitle = ""
     @Published var notificationBody = ""
     @Published var deviceToken = ""
-    @Published var extraDataJSON = ""
+    @Published var extraDataJson = ""
     @Published var log = ""
     
     init(pushNotificationInteractor: PushNotificationInteractorProtocol,
@@ -89,6 +90,16 @@ class PushViewModel: PushViewModelProtocol {
         }
     }
     
+    func formatExtraDataJson() {
+        guard let prettyJson = extraDataJson.dictionaryValue?.jsonString(sortedByKey: true, prettyFormat: true),
+            !prettyJson.isEmpty else
+        {
+            return
+        }
+
+        extraDataJson = prettyJson
+    }
+    
     func clearLog() {
         log = ""
     }
@@ -101,7 +112,7 @@ class PushViewModel: PushViewModelProtocol {
             notificationTitle = ""
             notificationBody = ""
             deviceToken = ""
-            extraDataJSON = ""
+            extraDataJson = ""
             log = ""
         }
     }
@@ -115,14 +126,22 @@ class PushViewModel: PushViewModelProtocol {
                                             priority: pushType.defaultPriority,
                                             sound: nil,
                                             badge: nil,
-                                            contentAvailable: pushType.defaultContentAvailable || contentAvailable,
-                                            extraData: nil)
+                                            contentAvailable: contentAvailable,
+                                            mutableContent: mutableContent,
+                                            extraData: extraDataJson.dictionaryValue)
         pushNotificationInteractor.cacheNotification(notification)
         
         guard certificate?.isValid ?? false else {
             self.log("Failed to push -- Invalid certificate")
             return
         }
+        
+        log("""
+            sending notification:
+            =======================
+            \(notification.toDictionary.jsonString(sortedByKey: true, prettyFormat: true))
+            =======================
+            """)
         
         pushNotificationInteractor.sendNotification(notification: notification) { error in
             let result = error == nil ? "Notification send success!" : error.debugDescription

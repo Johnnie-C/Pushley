@@ -29,10 +29,7 @@ struct JsonBodyStringEncoding: ParameterEncoding {
         guard var urlRequest = urlRequest.urlRequest else { throw Errors.emptyURLRequest }
         
         if let parameters = parameters {
-            let jsonString = parameters.description
-                .replacingOccurrences(of: "[", with: "{")
-                .replacingOccurrences(of: "]", with: "}")
-            urlRequest.httpBody = jsonString.data(using: .utf8)
+            urlRequest.httpBody = parameters.jsonString().data(using: .utf8)
         }
         
         return urlRequest

@@ -229,13 +229,10 @@ struct PushNotification: Codable {
         }
         
         var root: [String: Any] = ["aps": aps]
-        
         if let extraData = extraData {
-            extraData.forEach {
-                root[$0] = $1
-            }
+            root.merge(extraData) { current, _ in current }
         }
-        
+
         return root
     }
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15CE935D5BBBF43468AD93E5 /* Pods_PushleyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B852B3CA5E5CDF065F8BCA /* Pods_PushleyTests.framework */; };
+		590EAA4325009856007F1D8C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590EAA4225009856007F1D8C /* StringExtension.swift */; };
+		590EAA4525009CC3007F1D8C /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590EAA4425009CC3007F1D8C /* DictionaryExtension.swift */; };
 		5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD1F2432F25B003E7816 /* AppDelegate.swift */; };
 		5915DD242432F25C003E7816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5915DD232432F25C003E7816 /* Assets.xcassets */; };
 		5915DD272432F25C003E7816 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5915DD262432F25C003E7816 /* Preview Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		445BC1F747B353F182CD3817 /* Pods-Pushley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley.release.xcconfig"; path = "Target Support Files/Pods-Pushley/Pods-Pushley.release.xcconfig"; sourceTree = "<group>"; };
 		44BC479C4DA1E412F88C2A4C /* Pods-Pushley-PushleyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley-PushleyUITests.release.xcconfig"; path = "Target Support Files/Pods-Pushley-PushleyUITests/Pods-Pushley-PushleyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		546B50B942E99120BA624D3A /* Pods-PushleyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushleyTests.debug.xcconfig"; path = "Target Support Files/Pods-PushleyTests/Pods-PushleyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		590EAA4225009856007F1D8C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		590EAA4425009CC3007F1D8C /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		5915DD1C2432F25B003E7816 /* Pushley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pushley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5915DD1F2432F25B003E7816 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5915DD232432F25C003E7816 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 			children = (
 				59BF8D332456D9A5000E4BF0 /* DateExtension.swift */,
 				59B082012457F14F003DA6B7 /* CodableExtensions.swift */,
+				590EAA4225009856007F1D8C /* StringExtension.swift */,
+				590EAA4425009CC3007F1D8C /* DictionaryExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -561,6 +567,8 @@
 				59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */,
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,
 				5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */,
+				590EAA4325009856007F1D8C /* StringExtension.swift in Sources */,
+				590EAA4525009CC3007F1D8C /* DictionaryExtension.swift in Sources */,
 				596AA62024568629007EA704 /* PushNotification.swift in Sources */,
 				59B08207245813DA003DA6B7 /* SimpleButtonStyle.swift in Sources */,
 				595D3962250068CA0015F04D /* Checkbox.swift in Sources */,
