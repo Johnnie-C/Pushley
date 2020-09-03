@@ -111,6 +111,7 @@ struct PushNotification: Codable {
     let sound: String?
     let badge: Int?
     let contentAvailable: Bool
+    let mutableContent: Bool
     let extraData: [String: Any]?
     
     enum CodingKeys: String, CodingKey {
@@ -123,6 +124,7 @@ struct PushNotification: Codable {
         case sound
         case badge
         case contentAvailable
+        case mutableContent
         case extraData
     }
     
@@ -144,6 +146,7 @@ struct PushNotification: Codable {
         sound = try keys.decodeIfPresent(.sound)
         badge = try keys.decodeIfPresent(.badge)
         contentAvailable = try keys.decodeIfPresent(.contentAvailable) ?? false
+        mutableContent = try keys.decodeIfPresent(.mutableContent) ?? false
         
         if let extraDataRawData = try keys.decodeIfPresent(.extraData, as: Data.self) {
             extraData = try? JSONSerialization.jsonObject(with: extraDataRawData) as? [String: Any]
@@ -164,6 +167,7 @@ struct PushNotification: Codable {
         try container.encode(sound, forKey: .sound)
         try container.encode(badge, forKey: .badge)
         try container.encode(contentAvailable, forKey: .contentAvailable)
+        try container.encode(mutableContent, forKey: .mutableContent)
         
         if let extraData = extraData {
             let extraDataRawData = try? JSONSerialization.data(withJSONObject: extraData, options: [])
@@ -180,6 +184,7 @@ struct PushNotification: Codable {
          sound: String? = nil,
          badge: Int? = nil,
          contentAvailable: Bool = false,
+         mutableContent: Bool = false,
          extraData: [String: Any]? = nil)
     {
         self.deviceToken = deviceToken
@@ -191,6 +196,7 @@ struct PushNotification: Codable {
         self.sound = sound
         self.badge = badge
         self.contentAvailable = contentAvailable
+        self.mutableContent = mutableContent
         self.extraData = extraData
     }
     
@@ -216,6 +222,10 @@ struct PushNotification: Codable {
         }
         if type.defaultContentAvailable || contentAvailable {
             aps["content-available"] = 1
+        }
+        
+        if mutableContent {
+            aps["mutable-content"] = 1
         }
         
         var root: [String: Any] = ["aps": aps]

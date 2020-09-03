@@ -15,6 +15,8 @@ protocol PushViewModelProtocol: ObservableObject {
     var certificate: Certificate? { get set }
     var environment: Environment { get set }
     var pushType: PushType { get set }
+    var contentAvailable: Bool { get set }
+    var mutableContent: Bool { get set }
     var notificationTitle: String { get set }
     var notificationBody: String { get set }
     var deviceToken: String { get set }
@@ -36,6 +38,8 @@ class PushViewModel: PushViewModelProtocol {
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
+    @Published var contentAvailable = false
+    @Published var mutableContent = false
     @Published var notificationTitle = ""
     @Published var notificationBody = ""
     @Published var deviceToken = ""
@@ -111,7 +115,7 @@ class PushViewModel: PushViewModelProtocol {
                                             priority: pushType.defaultPriority,
                                             sound: nil,
                                             badge: nil,
-                                            contentAvailable: pushType.defaultContentAvailable,
+                                            contentAvailable: pushType.defaultContentAvailable || contentAvailable,
                                             extraData: nil)
         pushNotificationInteractor.cacheNotification(notification)
         

@@ -20,6 +20,7 @@
 		5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD582432F2DF003E7816 /* PushViewModel.swift */; };
 		5915DD622432F2DF003E7816 /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915DD5A2432F2DF003E7816 /* PushView.swift */; };
 		591DD57324593E18007CCB6A /* PushViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DD57224593E18007CCB6A /* PushViewRouter.swift */; };
+		595D3962250068CA0015F04D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D3961250068CA0015F04D /* Checkbox.swift */; };
 		596259D0245E80E9007271F8 /* NSScrollableTextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596259CF245E80E9007271F8 /* NSScrollableTextViewWrapper.swift */; };
 		596AA61C24566B82007EA704 /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61B24566B82007EA704 /* FilePicker.swift */; };
 		596AA61E24567A40007EA704 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596AA61D24567A40007EA704 /* Dialog.swift */; };
@@ -74,6 +75,7 @@
 		5915DD582432F2DF003E7816 /* PushViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
 		5915DD5A2432F2DF003E7816 /* PushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		591DD57224593E18007CCB6A /* PushViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewRouter.swift; sourceTree = "<group>"; };
+		595D3961250068CA0015F04D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		596259CF245E80E9007271F8 /* NSScrollableTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScrollableTextViewWrapper.swift; sourceTree = "<group>"; };
 		596AA61B24566B82007EA704 /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
 		596AA61D24567A40007EA704 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				596259CF245E80E9007271F8 /* NSScrollableTextViewWrapper.swift */,
+				595D3961250068CA0015F04D /* Checkbox.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				5915DD202432F25B003E7816 /* AppDelegate.swift in Sources */,
 				596AA62024568629007EA704 /* PushNotification.swift in Sources */,
 				59B08207245813DA003DA6B7 /* SimpleButtonStyle.swift in Sources */,
+				595D3962250068CA0015F04D /* Checkbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

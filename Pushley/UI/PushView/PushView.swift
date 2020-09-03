@@ -25,7 +25,7 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(Color(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0), lineWidth: 1)
-                    )
+                        )
                 }
                 Button(
                     action:{ self.viewModel.showCertificatePicker() },
@@ -53,6 +53,15 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             }
             .padding(.bottom, 10)
             
+            HStack(alignment: .center, spacing: 30) {
+                Checkbox(label: "content-available", isChecked: $viewModel.contentAvailable)
+                    .fixedSize()
+                
+                Checkbox(label: "mutable-content", isChecked: $viewModel.mutableContent)
+                    .fixedSize()
+            }
+            .padding(.bottom, 10)
+            
             HStack(alignment: .center) {
                 Text("Title:")
                 TextField("", text: self.$viewModel.notificationTitle)
@@ -66,7 +75,7 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
                     .cornerRadius(5)
                     .focusable()
             }
-                
+            
             HStack(alignment: .center) {
                 Text("Device Token:")
                 TextField("", text: self.$viewModel.deviceToken)
@@ -91,7 +100,7 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
                             .stroke(Color.gray, lineWidth: 1)
                     )
                     .cornerRadius(5)
-                    
+                
                 Button(action: { self.viewModel.clearLog() }) {
                     Image(nsImage: NSImage(named: NSImage.refreshTemplateName) ?? NSImage())
                 }
@@ -114,9 +123,6 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
         .padding(10)
         .frame(minWidth: 600, maxWidth: .infinity,
                minHeight: 400, maxHeight: .infinity)
-        .onAppear() {
-            
-        }
     }
     
 }
