@@ -17,6 +17,7 @@ protocol PushViewModelProtocol: ObservableObject {
     var pushType: PushType { get set }
     var contentAvailable: Bool { get set }
     var mutableContent: Bool { get set }
+    var topic: String { get set }
     var notificationTitle: String { get set }
     var notificationBody: String { get set }
     var deviceToken: String { get set }
@@ -39,6 +40,7 @@ class PushViewModel: PushViewModelProtocol {
     @Published var certificate: Certificate?
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
+    @Published var topic = ""
     @Published var contentAvailable = false
     @Published var mutableContent = false
     @Published var notificationTitle = ""
@@ -62,6 +64,8 @@ class PushViewModel: PushViewModelProtocol {
             notificationTitle = notification.title ?? ""
             notificationBody = notification.body ?? ""
             deviceToken = notification.deviceToken
+            topic = notification.topic
+            extraDataJson = notification.extraData?.jsonString(sortedByKey: true, prettyFormat: true) ?? ""
         }
     }
     
@@ -119,6 +123,7 @@ class PushViewModel: PushViewModelProtocol {
     
     func send() {
         let notification = PushNotification(deviceToken: deviceToken,
+                                            topic: topic,
                                             title: notificationTitle,
                                             body: notificationBody,
                                             environment: environment,
@@ -144,7 +149,8 @@ class PushViewModel: PushViewModelProtocol {
             """)
         
         pushNotificationInteractor.sendNotification(notification: notification) { error in
-            let result = error == nil ? "Notification send success!" : error.debugDescription
+            let result = error == nil ? "Notification send success!\n"
+                : "Notification send failed! error: \(error!.localizedDescription)\n"
             self.log(result)
         }
     }

@@ -37,14 +37,27 @@ class PushNotificationInteractor: PushNotificationInteractorProtocol {
                           completion: @escaping (Error?) -> Void)
     {
         let url = "\(notification.environment.host)/3/device/\(notification.deviceToken)"
-        let headers = ["apns-push-type": notification.type.rawValue,
+        var headers = ["apns-push-type": notification.type.rawValue,
                        "apns-priority": notification.type.defaultPriority.rawValue]
+        if !notification.topic.isEmpty {
+            headers["apns-topic"] = notification.topic
+        }
         
         netWorker.post(url: url,
                        parameters: notification.toDictionary,
                        headers: headers)
-        { response  in
-            completion(response.error)
+        { response in
+            if let data = response.data,
+                let apnResponse = try? ApnResponse.decoded(data: data)
+            {
+                let error = NSError(domain: "",
+                                    code: response.error?.responseCode ?? -999,
+                                    userInfo: [NSLocalizedDescriptionKey: apnResponse.reason ?? "Unknown"])
+                completion(error)
+            }
+            else {
+                completion(response.error)
+            }
         }
     }
     

@@ -53,6 +53,14 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             }
             .padding(.bottom, 10)
             
+            HStack(alignment: .center) {
+                Text("Topic:")
+                TextField("Your app bundle Id", text: $viewModel.topic)
+                    .cornerRadius(5)
+                    .focusable()
+            }
+            .padding(.bottom, 10)
+            
             HStack(alignment: .center, spacing: 30) {
                 Checkbox(label: "content-available", isChecked: $viewModel.contentAvailable)
                     .fixedSize()
@@ -62,7 +70,7 @@ struct PushView<ViewModel: PushViewModelProtocol>: View {
             .padding(.bottom, 10)
             
             VStack(alignment: .leading, spacing: 3) {
-                Text("Extra Data:")
+                Text("Extra Data(Optional):")
                 NSScrollableTextViewWrapper(text: $viewModel.extraDataJson,
                                             didEndEditing: { self.viewModel.formatExtraDataJson() })
                     .padding(.top, 5)

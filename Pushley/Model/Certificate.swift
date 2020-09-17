@@ -16,9 +16,7 @@ class Certificate  {
     var certChain: [SecTrust]?
     var identity: SecIdentity?
     let securityError: OSStatus
-    var isValid: Bool {
-        return securityError == errSecSuccess
-    }
+    var isValid: Bool { securityError == errSecSuccess }
 
     init(data: Data, password: String) {
         self.label = ""
@@ -27,7 +25,7 @@ class Certificate  {
 
         // import certificate to read its entries
         self.securityError = SecPKCS12Import(data as NSData, certOptions, &items)
-
+        
         if securityError == errSecSuccess {
             let certItems:Array = (items! as Array)
             let dict:Dictionary<String, AnyObject> = certItems.first! as! Dictionary<String, AnyObject>

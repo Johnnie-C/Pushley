@@ -37,6 +37,7 @@ struct NSScrollableTextViewWrapper: NSViewRepresentable {
         
         textView?.string = text
         textView?.display() // force update UI to re-draw the string
+        textView?.scrollRangeToVisible(NSRange(location: text.count, length: 0))
     }
     
     func makeCoordinator() -> Coordinator {

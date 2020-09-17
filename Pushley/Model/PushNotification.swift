@@ -103,6 +103,7 @@ enum Priority: String {
 struct PushNotification: Codable {
     
     let deviceToken: String
+    let topic: String
     let title: String?
     let body: String?
     let environment: Environment
@@ -116,6 +117,7 @@ struct PushNotification: Codable {
     
     enum CodingKeys: String, CodingKey {
         case deviceToken
+        case topic
         case title
         case body
         case environment
@@ -131,6 +133,7 @@ struct PushNotification: Codable {
     init(from decoder: Decoder) throws {
         let keys = try decoder.container(keyedBy: CodingKeys.self)
         deviceToken = try keys.decodeIfPresent(.deviceToken) ?? ""
+        topic = try keys.decodeIfPresent(.topic) ?? ""
         title = try keys.decodeIfPresent(.title)
         body = try keys.decodeIfPresent(.body)
         
@@ -159,6 +162,7 @@ struct PushNotification: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(deviceToken, forKey: .deviceToken)
+        try container.encode(topic, forKey: .topic)
         try container.encode(title, forKey: .title)
         try container.encode(body, forKey: .body)
         try container.encode(environment.rawValue, forKey: .environment)
@@ -176,6 +180,7 @@ struct PushNotification: Codable {
     }
     
     init(deviceToken: String,
+         topic: String = "",
          title: String? = nil,
          body: String? = nil,
          environment: Environment,
@@ -188,6 +193,7 @@ struct PushNotification: Codable {
          extraData: [String: Any]? = nil)
     {
         self.deviceToken = deviceToken
+        self.topic = topic
         self.title = title
         self.body = body
         self.environment = environment

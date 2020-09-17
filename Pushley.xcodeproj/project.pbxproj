@@ -32,6 +32,7 @@
 		59BF8D342456D9A5000E4BF0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D332456D9A5000E4BF0 /* DateExtension.swift */; };
 		59BF8D392457AB67000E4BF0 /* PushNotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D382457AB67000E4BF0 /* PushNotificationInteractor.swift */; };
 		59BF8D3C2457B3DB000E4BF0 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */; };
+		59F4DCEC2512E5D900681595 /* ApnResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F4DCEB2512E5D900681595 /* ApnResponse.swift */; };
 		6EC47D92F866450D9D87D5CA /* Pods_Pushley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */; };
 		9327E71BBAD774EFAE9B0EFB /* Pods_Pushley_PushleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		59BF8D332456D9A5000E4BF0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		59BF8D382457AB67000E4BF0 /* PushNotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationInteractor.swift; sourceTree = "<group>"; };
 		59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		59F4DCEB2512E5D900681595 /* ApnResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnResponse.swift; sourceTree = "<group>"; };
 		87E85474F1DC81AAE5A01F39 /* Pods_Pushley_PushleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley_PushleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3275D767F9635A2EF6A85D /* Pods_Pushley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65EC6BF82EC4BCB18C0E4DE /* Pods-Pushley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushley.debug.xcconfig"; path = "Target Support Files/Pods-Pushley/Pods-Pushley.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		5915DD512432F2DF003E7816 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				59F4DCEA2512E0E500681595 /* Responses */,
 				5915DD522432F2DF003E7816 /* Certificate.swift */,
 				596AA61F24568629007EA704 /* PushNotification.swift */,
 			);
@@ -302,6 +305,14 @@
 				59BF8D3B2457B3DB000E4BF0 /* DIContainer.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		59F4DCEA2512E0E500681595 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				59F4DCEB2512E5D900681595 /* ApnResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		DFE3883D5531B14879316A8F /* Frameworks */ = {
@@ -563,6 +574,7 @@
 				59BF8D392457AB67000E4BF0 /* PushNotificationInteractor.swift in Sources */,
 				5915DD5D2432F2DF003E7816 /* Certificate.swift in Sources */,
 				591DD57324593E18007CCB6A /* PushViewRouter.swift in Sources */,
+				59F4DCEC2512E5D900681595 /* ApnResponse.swift in Sources */,
 				5915DD5F2432F2DF003E7816 /* JsonBodyStringEncoding.swift in Sources */,
 				59B082022457F14F003DA6B7 /* CodableExtensions.swift in Sources */,
 				5915DD602432F2DF003E7816 /* PushViewModel.swift in Sources */,
