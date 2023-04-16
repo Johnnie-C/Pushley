@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import Combine
+import CryptoKit
 
 protocol PushViewModelProtocol: ObservableObject {
     
@@ -54,6 +55,8 @@ class PushViewModel: PushViewModelProtocol {
     @Published var extraDataJson = ""
     @Published var log = ""
     
+    private var p8Key: P256.Signing.PrivateKey?
+    
     init(pushNotificationInteractor: PushNotificationInteractorProtocol = PushNotificationInteractor()) {
         self.pushNotificationInteractor = pushNotificationInteractor
         loadCachedNotification()
@@ -85,27 +88,42 @@ class PushViewModel: PushViewModelProtocol {
     }
     
     private func processP12Certificate(url: URL) {
-        self.log("Loading certificate...from \(url)")
+        log("Loading certificate...from \(url)")
         if let password = Dialog.getInputText(title: "Password:", needSecure: true) {
             let data = try! Data(contentsOf: url)
             let certificate = Certificate(data: data, password: password)
             if certificate.isValid {
                 self.certificate = certificate
                 self.pushNotificationInteractor.updateCertificate(certificate)
-                self.log("Certificate loaded! -- \(self.certificate?.label ?? "")")
+                log("Certificate loaded! -- \(self.certificate?.label ?? "")")
             }
             else {
                 Dialog.showSimpleAlert(title: "Wrong Password")
-                self.log("Failed load certificate!")
+                log("Failed load certificate!")
             }
         }
         else {
-            self.log("Cancel loading certificate")
+            log("Cancel loading certificate")
         }
     }
     
     private func processP8Certificate(url: URL) {
-        self.log("Loading private key...from \(url)")
+        log("Loading private p8 key...from \(url)")
+        do {
+            let data = try Data(contentsOf: url)
+            guard let pem = String(data: data, encoding: .utf8) else {
+                log("Failed load p8 key")
+                return
+            }
+            p8Key = try P256.Signing.PrivateKey(pemRepresentation: pem)
+            log("Key loaded!")
+            // TODO: later encoding
+//            let signatureData = try! signer.signature(for: plainTextData)
+//            let signature = signatureData.derRepresentation.base64EncodedString()
+        } catch {
+            log("Failed load p8 key: \(error.localizedDescription)")
+        }
+        
     }
     
     func formatExtraDataJson() {
@@ -125,7 +143,11 @@ class PushViewModel: PushViewModelProtocol {
     func resetIfNeeded() {
         if Dialog.showYesCancelAlert(title: "Reset notification and certificate?") {
             certificate = nil
+            certificateType = .p12
             environment = Environment.sandbox
+            keyID = ""
+            issuerID = ""
+            p8Key = nil
             pushType = PushType.alert
             notificationTitle = ""
             notificationBody = ""
@@ -153,7 +175,7 @@ class PushViewModel: PushViewModelProtocol {
         pushNotificationInteractor.cacheNotification(notification)
         
         guard certificate?.isValid ?? false else {
-            self.log("Failed to push -- Invalid certificate")
+            log("Failed to push -- Invalid certificate")
             return
         }
         
