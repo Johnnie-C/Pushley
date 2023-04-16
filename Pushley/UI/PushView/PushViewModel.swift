@@ -13,6 +13,9 @@ import Combine
 protocol PushViewModelProtocol: ObservableObject {
     
     var certificate: Certificate? { get set }
+    var certificateType: CertificateType { get set }
+    var keyID: String { get set }
+    var issuerID: String { get set }
     var environment: Environment { get set }
     var pushType: PushType { get set }
     var contentAvailable: Bool { get set }
@@ -35,9 +38,11 @@ protocol PushViewModelProtocol: ObservableObject {
 class PushViewModel: PushViewModelProtocol {
     
     private let pushNotificationInteractor: PushNotificationInteractorProtocol
-    private let pushViewRouter: PushViewRouterProtocol
     
+    @Published var certificateType: CertificateType = .p12
     @Published var certificate: Certificate?
+    @Published var keyID: String = ""
+    @Published var issuerID: String = ""
     @Published var environment = Environment.sandbox
     @Published var pushType = PushType.alert
     @Published var topic = ""
@@ -49,11 +54,8 @@ class PushViewModel: PushViewModelProtocol {
     @Published var extraDataJson = ""
     @Published var log = ""
     
-    init(pushNotificationInteractor: PushNotificationInteractorProtocol,
-         pushViewRouter: PushViewRouterProtocol)
-    {
+    init(pushNotificationInteractor: PushNotificationInteractorProtocol = PushNotificationInteractor()) {
         self.pushNotificationInteractor = pushNotificationInteractor
-        self.pushViewRouter = pushViewRouter
         loadCachedNotification()
     }
     
@@ -71,27 +73,39 @@ class PushViewModel: PushViewModelProtocol {
     
     func showCertificatePicker() {
         let pickerBuilder = FilePickerBuilder.defaultSingleFilePicker()
-        pickerBuilder.allowedFileTypes = ["p12"]
+        pickerBuilder.allowedFileTypes = certificateType == .p12 ? ["p12"] : ["p8"]
         
         if let pickedFileUrl = FilePicker.pick(builder: pickerBuilder)?.first {
-            self.log("Loading certificate...from \(pickedFileUrl)")
-            if let password = Dialog.getInputText(title: "Password:", needSecure: true) {
-                let data = try! Data(contentsOf: pickedFileUrl)
-                let certificate = Certificate(data: data, password: password)
-                if certificate.isValid {
-                    self.certificate = certificate
-                    self.pushNotificationInteractor.updateCertificate(certificate)
-                    self.log("Certificate loaded! -- \(self.certificate?.label ?? "")")
-                }
-                else {
-                    Dialog.showSimpleAlert(title: "Wrong Password")
-                    self.log("Failed load certificate!")
-                }
-            }
-            else {
-                self.log("Cancel loading certificate")
+            if certificateType == .p12 {
+                processP12Certificate(url: pickedFileUrl)
+            } else if certificateType == .p8 {
+                processP8Certificate(url: pickedFileUrl)
             }
         }
+    }
+    
+    private func processP12Certificate(url: URL) {
+        self.log("Loading certificate...from \(url)")
+        if let password = Dialog.getInputText(title: "Password:", needSecure: true) {
+            let data = try! Data(contentsOf: url)
+            let certificate = Certificate(data: data, password: password)
+            if certificate.isValid {
+                self.certificate = certificate
+                self.pushNotificationInteractor.updateCertificate(certificate)
+                self.log("Certificate loaded! -- \(self.certificate?.label ?? "")")
+            }
+            else {
+                Dialog.showSimpleAlert(title: "Wrong Password")
+                self.log("Failed load certificate!")
+            }
+        }
+        else {
+            self.log("Cancel loading certificate")
+        }
+    }
+    
+    private func processP8Certificate(url: URL) {
+        self.log("Loading private key...from \(url)")
     }
     
     func formatExtraDataJson() {
@@ -122,18 +136,20 @@ class PushViewModel: PushViewModelProtocol {
     }
     
     func send() {
-        let notification = PushNotification(deviceToken: deviceToken,
-                                            topic: topic,
-                                            title: notificationTitle,
-                                            body: notificationBody,
-                                            environment: environment,
-                                            type: pushType,
-                                            priority: pushType.defaultPriority,
-                                            sound: nil,
-                                            badge: nil,
-                                            contentAvailable: contentAvailable,
-                                            mutableContent: mutableContent,
-                                            extraData: extraDataJson.dictionaryValue)
+        let notification = PushNotification(
+            deviceToken: deviceToken,
+            topic: topic,
+            title: notificationTitle,
+            body: notificationBody,
+            environment: environment,
+            type: pushType,
+            priority: pushType.defaultPriority,
+            sound: nil,
+            badge: nil,
+            contentAvailable: contentAvailable,
+            mutableContent: mutableContent,
+            extraData: extraDataJson.dictionaryValue
+        )
         pushNotificationInteractor.cacheNotification(notification)
         
         guard certificate?.isValid ?? false else {
@@ -159,16 +175,4 @@ class PushViewModel: PushViewModelProtocol {
         self.log.append("\(self.log.isEmpty ? "" : "\n")\(Date().timeOnlyString): \(log)")
     }
 
-}
-
-extension PushViewModel: Injectable {
-    
-    static func inject<T>(container: DIContainer) -> T {
-        let pushNotificationInteractor = container.injectPushNotificationInteractor()
-        let pushViewRouter = container.injectPushViewRouter()
-        
-        return PushViewModel(pushNotificationInteractor: pushNotificationInteractor,
-                             pushViewRouter: pushViewRouter) as! T
-    }
-    
 }

@@ -20,15 +20,15 @@ class Certificate  {
 
     init(data: Data, password: String) {
         self.label = ""
-        var items:CFArray?
-        let certOptions:NSDictionary = [kSecImportExportPassphrase as NSString:password as NSString]
+        var items: CFArray?
+        let certOptions: NSDictionary = [kSecImportExportPassphrase as NSString: password as NSString]
 
         // import certificate to read its entries
         self.securityError = SecPKCS12Import(data as NSData, certOptions, &items)
         
         if securityError == errSecSuccess {
-            let certItems:Array = (items! as Array)
-            let dict:Dictionary<String, AnyObject> = certItems.first! as! Dictionary<String, AnyObject>
+            let certItems: Array = (items! as Array)
+            let dict: Dictionary<String, AnyObject> = certItems.first! as! Dictionary<String, AnyObject>
 
             self.label = (dict[kSecImportItemLabel as String] as? String) ?? ""
             self.keyID = dict[kSecImportItemKeyID as String] as? Data
@@ -39,7 +39,14 @@ class Certificate  {
     }
 
     public convenience init(mainBundleResource: String, resourceType: String, password: String) {
-        self.init(data: NSData(contentsOfFile: Bundle.main.path(forResource: mainBundleResource, ofType:resourceType)!)! as Data, password: password)
+        self.init(
+            data: NSData(
+                contentsOfFile: Bundle.main.path(
+                    forResource: mainBundleResource,
+                    ofType:resourceType
+                )!
+            )! as Data,
+            password: password)
     }
 
     public func urlCredential()  -> URLCredential  {

@@ -23,19 +23,26 @@ class PushNotificationInteractor: PushNotificationInteractorProtocol {
     
     private static let lastNotificationKey = "lastNotification"
     
-    private let netWorker: APNNetworkerProtocol
+    private let netWorkerP12: APNNetworkerProtocol
+    private let netWorkerP8: APNNetworkerProtocol
     
-    init(netWorker: APNNetworkerProtocol) {
-        self.netWorker = netWorker
+    init(
+        netWorkerP12: APNNetworkerProtocol = APNP12Networker(),
+        netWorkerP8: APNNetworkerProtocol = APNP8Networker()
+    ) {
+        self.netWorkerP12 = netWorkerP12
+        self.netWorkerP8 = netWorkerP8
     }
     
     func updateCertificate(_ certificate: Certificate) {
-        netWorker.updateCertificate(certificate)
+        netWorkerP12.updateCertificate(certificate)
+        netWorkerP8.updateCertificate(certificate)
     }
     
-    func sendNotification(notification: PushNotification,
-                          completion: @escaping (Error?) -> Void)
-    {
+    func sendNotification(
+        notification: PushNotification,
+        completion: @escaping (Error?) -> Void
+    ) {
         let url = "\(notification.environment.host)/3/device/\(notification.deviceToken)"
         var headers = ["apns-push-type": notification.type.rawValue,
                        "apns-priority": notification.type.defaultPriority.rawValue]
@@ -43,10 +50,11 @@ class PushNotificationInteractor: PushNotificationInteractorProtocol {
             headers["apns-topic"] = notification.topic
         }
         
-        netWorker.post(url: url,
-                       parameters: notification.toDictionary,
-                       headers: headers)
-        { response in
+        netWorkerP12.post(
+            url: url,
+            parameters: notification.toDictionary,
+            headers: headers
+        ) { response in
             if let data = response.data,
                 let apnResponse = try? ApnResponse.decoded(data: data)
             {
@@ -73,15 +81,6 @@ class PushNotificationInteractor: PushNotificationInteractorProtocol {
             return try? PushNotification.decoded(data: data)
         }
         return nil
-    }
-    
-}
-
-extension PushNotificationInteractor: Injectable {
-    
-    static func inject<T>(container: DIContainer) -> T {
-        let networker = container.injectAPNNetworker()
-        return PushNotificationInteractor(netWorker: networker) as! T
     }
     
 }

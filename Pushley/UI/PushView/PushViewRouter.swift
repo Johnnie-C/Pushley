@@ -8,24 +8,10 @@
 
 import SwiftUI
 
-protocol PushViewRouterProtocol {
-    
-}
-
-class PushViewRouter: PushViewRouterProtocol {
+class PushViewRouter {
 
     static func newPushView() -> some View {
-        let viewModel = DIContainer.shared.injectPushViewModel()
-        return PushView(viewModel: viewModel)
+        return PushView(viewModel: PushViewModel())
     }
-    
-}
-
-extension PushViewRouter: Injectable {
-    
-    static func inject<T>(container: DIContainer) -> T {
-        return PushViewRouter() as! T
-    }
-    
     
 }

@@ -179,19 +179,20 @@ struct PushNotification: Codable {
         }
     }
     
-    init(deviceToken: String,
-         topic: String = "",
-         title: String? = nil,
-         body: String? = nil,
-         environment: Environment,
-         type: PushType = .alert,
-         priority: Priority = .high,
-         sound: String? = nil,
-         badge: Int? = nil,
-         contentAvailable: Bool = false,
-         mutableContent: Bool = false,
-         extraData: [String: Any]? = nil)
-    {
+    init(
+        deviceToken: String,
+        topic: String = "",
+        title: String? = nil,
+        body: String? = nil,
+        environment: Environment,
+        type: PushType = .alert,
+        priority: Priority = .high,
+        sound: String? = nil,
+        badge: Int? = nil,
+        contentAvailable: Bool = false,
+        mutableContent: Bool = false,
+        extraData: [String: Any]? = nil
+    ) {
         self.deviceToken = deviceToken
         self.topic = topic
         self.title = title
